@@ -1,28 +1,36 @@
 * {
-  margin:0;
+  margin: 0;
   box-sizing: border-box;
 }
-body {
-  width:100vw;
-  height:100vh;
-  position:absolute;
-  top:0;
-  left:0;
-  display:flex;
+
+body,
+main {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
+  transition: color .2s linear;
+  transition: background-color .2s linear;
 }
+
 header {
-  position:absolute;
-  top:1rem;
+  position: absolute;
+  top: 1rem;
 }
+
 article {
-  display:flex;
+  display: flex;
   justify-content: center;
 }
+
 progress {
-  width:calc(100vw - 2rem);
+  width: calc(100vw - 2rem);
 }
+
 #keyboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -30,25 +38,69 @@ progress {
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
-#keyboard > div {
-  font-size:1.5rem;
-  font-weight:bold;
-  padding:1.5rem;
-  border:2px solid #000;
-  --key:calc(30% - 2rem);
-  width:var(--key);
-  height:var(--key);
-  border-radius:50%;
-  display:flex;
+
+#keyboard>div {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1.5rem;
+  background-color: blue;
+  color: white;
+  --key: calc(30% - 2rem);
+  width: var(--key);
+  height: var(--key);
+  border-radius: 50%;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
+
 #score {
-  position:fixed;
-  top:1rem;
-  right:1rem;
-  padding:1rem;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  padding: 1rem;
   border-radius: 50%;
   background-color: blue;
-  color:white;
+  color: white;
+}
+
+/* dark mode toggle */
+#checkbox {
+  display: none;
+}
+
+#checkbox-label {
+  background-color: #111;
+  width: 50px;
+  height: 26px;
+  border-radius: 50px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 5px;
+  margin: .5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#checkbox-label .ball {
+  background-color: #fff;
+  width: 22px;
+  height: 22px;
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+#checkbox:checked+#checkbox-label .ball {
+  transform: translateX(24px);
+}
+
+#checkbox:checked~main {
+  background-color: blue;
+  color: aqua;
 }
