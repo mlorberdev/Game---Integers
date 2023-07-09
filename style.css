@@ -1,16 +1,23 @@
+@font-face {
+  font-family: squada;
+  src: url(./SquadaOne-Regular.ttf);
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
 }
 
 body {
-  position:fixed;
-  top:0;
-  left:0;
-  width:100vw;
-  height:100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   overflow: hidden;
+  font-family:squada;
 }
+
 main {
   width: 100vw;
   height: 100vh;
@@ -22,22 +29,49 @@ main {
   justify-content: center;
   transition: color .2s linear;
   transition: background-color .2s linear;
+  z-index: 1;
+}
+
+.check {
+  fill: #adff2f;
+  position: fixed;
+  top: 1rem;
+}
+
+.wrong {
+  fill: #c52e2e;
+}
+
+#home {
+  z-index: 100;
+  position: fixed;
+  bottom: .5rem;
+  right: .5rem;
+  width: 15px;
 }
 
 #working-page,
 #options-page {
-  display:none;
+  display: none;
 }
-#timer {
-  display:flex;
+
+#landing-page>article {
   flex-direction: column;
 }
-#timer > div {
-  margin:1rem 0;
+
+#timer {
+  display: flex;
+  flex-direction: column;
 }
+
+#timer>div {
+  margin: 1rem 0;
+}
+
 button {
-  padding:1rem 1.4rem;
+  padding: 1rem 1.4rem;
 }
+
 header {
   position: absolute;
   top: 1rem;
@@ -49,30 +83,40 @@ article {
 }
 
 progress {
+  position: fixed;
+  top: .2rem;
+  left:1rem;
   width: calc(100vw - 2rem);
 }
 
 #keyboard {
+  font-family: squada;
+}
+
+#keyboard {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid: auto-flow / 1fr 1fr 1fr;
+  grid-gap: .2rem;
 }
 
 #keyboard>div {
   font-size: 1.5rem;
-  font-weight: bold;
   padding: 1.5rem;
-  background-color: blue;
+  background-color: #333;
   color: white;
-  --key: calc(30% - 2rem);
+  --key: calc(min(17vw, 17vh));
   width: var(--key);
   height: var(--key);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  opacity: .9;
+}
+
+#keyboard>div:active {
+  background-color: #777;
+  color: #333;
 }
 
 #score {
@@ -92,14 +136,13 @@ progress {
 
 #checkbox-label {
   background-color: #111;
-  width: 50px;
-  height: 26px;
-  border-radius: 50px;
+  width: 25px;
+  height: 13px;
+  border-radius: 6px;
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: .5rem;
+  left: .5rem;
   padding: 5px;
-  margin: .5rem;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -109,8 +152,8 @@ progress {
 
 #checkbox-label .ball {
   background-color: #fff;
-  width: 22px;
-  height: 22px;
+  width: 9px;
+  height: 9px;
   position: absolute;
   left: 2px;
   top: 2px;
@@ -119,10 +162,10 @@ progress {
 }
 
 #checkbox:checked+#checkbox-label .ball {
-  transform: translateX(24px);
+  transform: translateX(12px);
 }
 
 #checkbox:checked~main {
-  background-color: blue;
-  color: aqua;
+  background-color: black;
+  color: white;
 }
