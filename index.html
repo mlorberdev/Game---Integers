@@ -29,21 +29,22 @@
         </article>
       </section>
       <section id="options-page">
-        <div id="timer">
+        <div id="game-length">
           <div>
             <input id="d3" type="radio" value="3" name="time" checked/>
-            <label for="d3">3:00</label>
+            <label for="d3">180s</label>
           </div>
           <div>
             <input id="d4" type="radio" value="4" name="time" />
-            <label for="d4">4:00</label>
+            <label for="d4">240s</label>
           </div>
           <div>
             <input id="d5" type="radio" value="5" name="time" />
-            <label for="d5">5:00</label>
+            <label for="d5">300s</label>
           </div>
         </div>
-        <button id="begin">BEGIN</button>
+        <button id="begin">questions</button>
+        <button id="signs">just signs</button>
       </section>
       <section id="working-page">
         <progress id="progress" max="100" value="30" aria-label="progress bar"></progress>
@@ -58,9 +59,11 @@
           </svg>
         </article>
         <article id="score">score</article>
-        <article id="time">timer</article>
+        <article id="timer"></article>
         <article id="level">level</article>
-        <article id="questions">questions</article>
+        <article id="questions">
+          temp
+        </article>
         <article>
           <div id="keyboard">
             <div id="k7">7</div>
@@ -78,6 +81,12 @@
           </div>
         </article>
       </section>
+      <!-- <section>
+        <svg id="back" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path class="cls-1"
+            d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm6,12H8.414l2.293,2.293a1,1,0,1,1-1.414,1.414l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L8.414,11H18a1,1,0,0,1,0,2Z" />
+        </svg>
+      </section> -->
       <section id="results-page">
         <!-- like the clean one, table of dates and bests -->
       </section>

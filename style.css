@@ -2,6 +2,14 @@
   font-family: squada;
   src: url(./SquadaOne-Regular.ttf);
 }
+@font-face {
+  font-family: sintony;
+  src: url(./Sintony-Regular.ttf);
+}
+@font-face {
+  font-family: economica;
+  src: url(./Economica-Regular.ttf);
+}
 
 * {
   margin: 0;
@@ -15,7 +23,6 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  font-family:squada;
 }
 
 main {
@@ -59,15 +66,18 @@ main {
   flex-direction: column;
 }
 
-#timer {
+#game-length {
   display: flex;
   flex-direction: column;
 }
 
-#timer>div {
+#game-length>div {
   margin: 1rem 0;
 }
-
+#timer {
+  font-family:economica;
+  font-size: 1.3rem;
+}
 button {
   padding: 1rem 1.4rem;
 }
@@ -100,6 +110,7 @@ progress {
 }
 
 #keyboard>div {
+  font-family:economica;
   font-size: 1.5rem;
   padding: 1.5rem;
   background-color: #333;
