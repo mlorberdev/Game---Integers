@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./color.css" />
+</head>
+
+<body>
+  <div id="mode">
+    <header>
+      <h1>WELCOME</h1>
+      <progress id="progress" max="100" value="5"></progress>
+      <article id="score">score</article>
+      <article id="timer">timer</article>
+      <article id="level">level</article>
+    </header>
+    <section id="landing-page">
+      <article>
+        <button id="multiplication">multiplication/division</button>
+        <button id="addition">addition/subtraction</button>
+      </article>
+    </section>
+    <section>
+      <article id="questions">questions</article>
+      <article id="keyboard">
+        <div id="k7">7</div>
+        <div id="k8">8</div>
+        <div id="k9">9</div>
+        <div id="k4">4</div>
+        <div id="k5">5</div>
+        <div id="k6">6</div>
+        <div id="k1">1</div>
+        <div id="k2">2</div>
+        <div id="k3">3</div>
+        <div id="k0">0</div>
+        <div class="wide" id="kd">.</div>
+      </article>
+    </section>
+    <div id="color-mode">
+      <input type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+        <!-- <img class="color-mode-img" src="./images/m.png"/>
+              <img class="color-mode-img" src="./images/s.png"/> -->
+        <span class="ball"></span>
+      </label>
+    </div>
+  </div>
+  <script defer src="./script.js"></script>
+</body>
+
+</html>
