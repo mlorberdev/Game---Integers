@@ -3,7 +3,14 @@
   box-sizing: border-box;
 }
 
-body,
+body {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  overflow: hidden;
+}
 main {
   width: 100vw;
   height: 100vh;
@@ -17,6 +24,20 @@ main {
   transition: background-color .2s linear;
 }
 
+#working-page,
+#options-page {
+  display:none;
+}
+#timer {
+  display:flex;
+  flex-direction: column;
+}
+#timer > div {
+  margin:1rem 0;
+}
+button {
+  padding:1rem 1.4rem;
+}
 header {
   position: absolute;
   top: 1rem;
@@ -83,6 +104,7 @@ progress {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 100;
 }
 
 #checkbox-label .ball {

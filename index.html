@@ -9,18 +9,14 @@
 </head>
 
 <body>
+  <input type="checkbox" id="checkbox">
+  <label for="checkbox" id="checkbox-label">
+    <span class="ball"></span>
+  </label>
   <main id="color-mode">
-    <input type="checkbox" id="checkbox">
-    <label for="checkbox" id="checkbox-label">
-      <span class="ball"></span>
-    </label>
     <div id="mode">
       <header>
-        <h1>WELCOME</h1>
-        <progress id="progress" max="100" value="0"></progress>
-        <article id="score">score</article>
-        <article id="timer">timer</article>
-        <article id="level">level</article>
+        <h1>Integers</h1>
       </header>
       <section id="landing-page">
         <article>
@@ -28,7 +24,29 @@
           <button id="addition">addition/subtraction</button>
         </article>
       </section>
-      <section>
+      <section id="options-page">
+        <div id="timer">
+          <div>
+            <input id="d3" type="radio" value="3" name="time" checked/>
+            <label for="d3">3:00</label>
+          </div>
+          <div>
+            <input id="d4" type="radio" value="4" name="time" />
+            <label for="d4">4:00</label>
+          </div>
+          <div>
+            <input id="d5" type="radio" value="5" name="time" />
+            <label for="d5">5:00</label>
+          </div>
+        </div>
+        <button id="begin">BEGIN</button>
+      </section>
+      <section id="working-page">
+        <progress id="progress" max="100" value="0"></progress>
+        <article id="check">check</article>
+        <article id="score">score</article>
+        <article id="time">timer</article>
+        <article id="level">level</article>
         <article id="questions">questions</article>
         <article>
           <div id="keyboard">
