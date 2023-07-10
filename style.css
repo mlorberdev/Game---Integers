@@ -11,6 +11,12 @@
   src: url(./Economica-Regular.ttf);
 }
 
+:root {
+  --key: calc(min(17vw, 17vh));
+  --dark: #000;
+  --lite: #fff;
+}
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -23,6 +29,10 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  transition: all .2s linear;
+  font-family:sintony;
+  background-color: var(--lite);
+  color: var(--dark);
 }
 
 main {
@@ -34,19 +44,7 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color .2s linear;
-  transition: background-color .2s linear;
   z-index: 1;
-}
-
-.check {
-  fill: #adff2f;
-  position: fixed;
-  top: 1rem;
-}
-
-.wrong {
-  fill: #c52e2e;
 }
 
 #home {
@@ -57,29 +55,19 @@ main {
   width: 15px;
 }
 
-#working-page,
-#options-page {
-  display: none;
-}
-
 #landing-page>article {
   flex-direction: column;
 }
 
 #game-length {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
-
-#game-length>div {
-  margin: 1rem 0;
+input[type=radio] {
+  display:none;
 }
-#timer {
-  font-family:economica;
-  font-size: 1.3rem;
-}
-button {
-  padding: 1rem 1.4rem;
+input[type=radio]:checked+label {
+  background-color: #adff2f;
 }
 
 header {
@@ -97,9 +85,11 @@ progress {
   top: .2rem;
   left:1rem;
   width: calc(100vw - 2rem);
+  transition:value 1s linear;
 }
 
-#keyboard {
+#keyboard,
+.sign {
   font-family: squada;
 }
 
@@ -109,74 +99,33 @@ progress {
   grid-gap: .2rem;
 }
 
-#keyboard>div {
-  font-family:economica;
+#keyboard>div,
+.sign {
+  user-select: none;
+  font-family:sintony;
+  font-weight:bold;
   font-size: 1.5rem;
   padding: 1.5rem;
-  background-color: #333;
-  color: white;
-  --key: calc(min(17vw, 17vh));
   width: var(--key);
   height: var(--key);
+  border:3px solid var(--dark);
+  color: var(--dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: .9;
+  transition:border-radius .5s ease-in-out;
+}
+#signs {
+  display:flex;
+  flex-direction: row;
+}
+.sign {
+  font-size:2.2rem;
+  margin:.2rem;
 }
 
-#keyboard>div:active {
-  background-color: #777;
-  color: #333;
-}
-
-#score {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  padding: 1rem;
-  border-radius: 50%;
-  background-color: blue;
-  color: white;
-}
-
-/* dark mode toggle */
-#checkbox {
-  display: none;
-}
-
-#checkbox-label {
-  background-color: #111;
-  width: 25px;
-  height: 13px;
-  border-radius: 6px;
-  position: fixed;
-  bottom: .5rem;
-  left: .5rem;
-  padding: 5px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-}
-
-#checkbox-label .ball {
-  background-color: #fff;
-  width: 9px;
-  height: 9px;
-  position: absolute;
-  left: 2px;
-  top: 2px;
-  border-radius: 50%;
-  transition: transform 0.2s linear;
-}
-
-#checkbox:checked+#checkbox-label .ball {
-  transform: translateX(12px);
-}
-
-#checkbox:checked~main {
-  background-color: black;
-  color: white;
+#keyboard>div:active,
+.sign:active {
+  border-radius:0;
 }

@@ -6,66 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="./style.css" />
+  <link rel="icon" href="./favicon.webp" />
 </head>
 
 <body>
-  <input type="checkbox" id="checkbox">
-  <label for="checkbox" id="checkbox-label">
-    <span class="ball"></span>
-  </label>
-  <svg id="home" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path class="cls-1"
-      d="M23.588,8.191l-11-8a1,1,0,0,0-1.176,0l-11,8A1,1,0,0,0,1.588,9.809L3,8.782V21a2.006,2.006,0,0,0,2,2H9V14a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1v9h4a2.006,2.006,0,0,0,2-2V8.782l1.412,1.027a1,1,0,1,0,1.176-1.618Z" />
-  </svg>
-  <main id="color-mode">
-    <div id="mode">
+
+  <main>
       <header>
-        <h1>Integers</h1>
+        <h1 id="qq">Integers Practice</h1>
       </header>
-      <section id="landing-page">
-        <article>
-          <button id="multiplication">multiplication/division</button>
-          <button id="addition">addition/subtraction</button>
-        </article>
-      </section>
-      <section id="options-page">
-        <div id="game-length">
-          <div>
-            <input id="d3" type="radio" value="3" name="time" checked/>
-            <label for="d3">180s</label>
-          </div>
-          <div>
-            <input id="d4" type="radio" value="4" name="time" />
-            <label for="d4">240s</label>
-          </div>
-          <div>
-            <input id="d5" type="radio" value="5" name="time" />
-            <label for="d5">300s</label>
-          </div>
-        </div>
-        <button id="begin">questions</button>
-        <button id="signs">just signs</button>
-      </section>
       <section id="working-page">
-        <progress id="progress" max="100" value="30" aria-label="progress bar"></progress>
-        <article id="check">
-          <svg width="4rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path class="check"
-              d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm5.707,8.707-7,7a1,1,0,0,1-1.414,0l-3-3a1,1,0,0,1,1.414-1.414L10,14.586l6.293-6.293a1,1,0,0,1,1.414,1.414Z" />
-          </svg>
-          <svg width="4rem" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path class="wrong"
-              d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm4.707,14.293a1,1,0,1,1-1.414,1.414L12,13.414,8.707,16.707a1,1,0,1,1-1.414-1.414L10.586,12,7.293,8.707A1,1,0,1,1,8.707,7.293L12,10.586l3.293-3.293a1,1,0,1,1,1.414,1.414L13.414,12Z" />
-          </svg>
-        </article>
-        <article id="score">score</article>
-        <article id="timer"></article>
-        <article id="level">level</article>
-        <article id="questions">
-          temp
-        </article>
+        <progress id="progress" max="60" value="0" aria-label="progress bar"></progress>
+        <button id="begin">start</button>
+        <div>easy 5-2, medium -5-2, hard -5- -2</div>
+        <div>just signs, sign and answer</div>
+        <div>60s 120s 180s</div>
         <article>
-          <div id="keyboard">
+          <!-- <div id="keyboard">
             <div id="k7">7</div>
             <div id="k8">8</div>
             <div id="k9">9</div>
@@ -78,19 +35,13 @@
             <div id="k0">0</div>
             <div id="kd">.</div>
             <div id="kn">&#8212;</div>
+          </div> -->
+          <div id="signs">
+            <div class="sign" id="neg">-</div>
+            <div class="sign" id="pos">+</div>
           </div>
         </article>
       </section>
-      <!-- <section>
-        <svg id="back" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path class="cls-1"
-            d="M12,1A11,11,0,1,0,23,12,11,11,0,0,0,12,1Zm6,12H8.414l2.293,2.293a1,1,0,1,1-1.414,1.414l-4-4a1,1,0,0,1,0-1.414l4-4a1,1,0,1,1,1.414,1.414L8.414,11H18a1,1,0,0,1,0,2Z" />
-        </svg>
-      </section> -->
-      <section id="results-page">
-        <!-- like the clean one, table of dates and bests -->
-      </section>
-    </div>
   </main>
   <script defer src="./script.js"></script>
 </body>
