@@ -73,6 +73,7 @@ input[type=radio]:checked+label {
 header {
   position: absolute;
   top: 1rem;
+  text-align: center;
 }
 
 article {
