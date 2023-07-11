@@ -1,15 +1,17 @@
-@font-face {
+/* @font-face {
   font-family: squada;
   src: url(./SquadaOne-Regular.ttf);
-}
+} */
+
 @font-face {
   font-family: sintony;
   src: url(./Sintony-Regular.ttf);
 }
-@font-face {
+
+/* @font-face {
   font-family: economica;
   src: url(./Economica-Regular.ttf);
-}
+} */
 
 :root {
   --key: calc(min(17vw, 17vh));
@@ -28,14 +30,16 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: all .2s linear;
-  font-family:sintony;
+  font-family: sintony;
   background-color: var(--lite);
   color: var(--dark);
 }
 
-main {
+main,
+article,
+.fullPage {
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -63,9 +67,11 @@ main {
   display: flex;
   flex-direction: row;
 }
+
 input[type=radio] {
-  display:none;
+  display: none;
 }
+
 input[type=radio]:checked+label {
   background-color: #adff2f;
 }
@@ -74,6 +80,39 @@ header {
   position: absolute;
   top: 1rem;
   text-align: center;
+}
+#begin {
+  position:fixed;
+  top:70vh;
+  padding:.5rem 1rem;
+  z-index: 100;
+}
+#settings {
+  position: fixed;
+  bottom: .5rem;
+  right: .5rem;
+  z-index: 150;
+}
+
+#options {
+  left: 100vw;
+  z-index: 200;
+  transition: left .3s ease;
+  flex-direction: column;
+  background-color: #adff2f;
+  color: var(--dark);
+}
+ul>li {
+  list-style-type: none;
+}
+
+.close {
+  position: absolute;
+  top: -.25rem;
+  right: .5rem;
+  font-size: 2rem;
+  font-weight: bold;
+  z-index: 250;
 }
 
 article {
@@ -84,9 +123,9 @@ article {
 progress {
   position: fixed;
   top: .2rem;
-  left:1rem;
+  left: 1rem;
   width: calc(100vw - 2rem);
-  transition:value 1s linear;
+  transition: value 1s linear;
 }
 
 #keyboard,
@@ -103,30 +142,62 @@ progress {
 #keyboard>div,
 .sign {
   user-select: none;
-  font-family:sintony;
-  font-weight:bold;
+  font-family: sintony;
+  font-weight: bold;
   font-size: 1.5rem;
   padding: 1.5rem;
   width: var(--key);
   height: var(--key);
-  border:3px solid var(--dark);
+  border: 3px solid var(--dark);
   color: var(--dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition:border-radius .5s ease-in-out;
+  transition: border-radius .5s ease-in-out;
 }
+
 #signs {
-  display:flex;
+  display: flex;
   flex-direction: row;
 }
+
 .sign {
-  font-size:2.2rem;
-  margin:.2rem;
+  font-size: 2.2rem;
+  margin: .2rem;
+}
+
+#zer {
+  font-size: 1.7rem;
 }
 
 #keyboard>div:active,
 .sign:active {
-  border-radius:0;
+  border-radius: 0;
+}
+
+#toast {
+  position: fixed;
+  top: 100vh;
+  width: 100vw;
+  height: 30vh;
+  background-color: #adff2f;
+  font-size: 2rem;
+  text-align: center;
+  transition:top .1s linear;
+}
+
+#stats {
+  position:fixed;
+  left:100vw;
+  top:0;
+  background-color: rgb(121, 34, 102);
+  color:var(--lite);
+  transition:left .1s linear;
+  z-index: 250;
+  overflow-y:scroll;
+  padding:1rem 0;
+}
+.top {
+  align-items: start;
 }
