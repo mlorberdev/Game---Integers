@@ -1,18 +1,3 @@
-@font-face {
-  font-family: squada;
-  src: url(./SquadaOne-Regular.ttf);
-}
-
-@font-face {
-  font-family: sintony;
-  src: url(./Sintony-Regular.ttf);
-}
-
-@font-face {
-  font-family: marker;
-  src: url(./PermanentMarker-Regular.ttf);
-}
-
 :root {
   --key: calc(min(17vw, 17vh));
   --dark: #333;
@@ -31,7 +16,7 @@ body {
   width: 100vw;
   height: 100vh;
   transition: all .2s linear;
-  font-family: sintony;
+  font-family: sans-serif;
   background-color: var(--dark);
   color: var(--lite);
 }
@@ -121,7 +106,6 @@ ul>li {
 }
 
 #options {
-  font-family:sintony;
   font-size:1.2rem;
   font-weight:400;
   flex-direction: column;
@@ -147,7 +131,7 @@ ul>li {
 
 #keyboard,
 .sign {
-  font-family: squada;
+  /* font-family: squada; */
 }
 
 #keyboard {
@@ -159,7 +143,6 @@ ul>li {
 #keyboard>div,
 .sign {
   user-select: none;
-  font-family: sintony;
   font-weight: bold;
   font-size: 1.5rem;
   padding: 1.5rem;
