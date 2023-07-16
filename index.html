@@ -4,35 +4,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Integers Practice</title>
+  <title>Practice</title>
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" href="./favicon.webp" />
 </head>
 
 <body>
+  <header>
+    <h1 id="question"></h1>
+    <h3 id="subtitle"></h3>
+  </header>
 
   <main>
-    <!-- <svg height="20px" viewBox="0 0 20 20" width="20px" xmlns="http://www.w3.org/2000/svg">
-      <path
-        d="M17.4,11 C17.4,10.7 17.5,10.4 17.5,10 C17.5,9.6 17.5,9.3 17.4,9 L19.5,7.3 C19.7,7.1 19.7,6.9 19.6,6.7 L17.6,3.2 C17.5,3.1 17.3,3 17,3.1 L14.5,4.1 C14,3.7 13.4,3.4 12.8,3.1 L12.4,0.5 C12.5,0.2 12.2,0 12,0 L8,0 C7.8,0 7.5,0.2 7.5,0.4 L7.1,3.1 C6.5,3.3 6,3.7 5.4,4.1 L3,3.1 C2.7,3 2.5,3.1 2.3,3.3 L0.3,6.8 C0.2,6.9 0.3,7.2 0.5,7.4 L2.6,9 C2.6,9.3 2.5,9.6 2.5,10 C2.5,10.4 2.5,10.7 2.6,11 L0.5,12.7 C0.3,12.9 0.3,13.1 0.4,13.3 L2.4,16.8 C2.5,16.9 2.7,17 3,16.9 L5.5,15.9 C6,16.3 6.6,16.6 7.2,16.9 L7.6,19.5 C7.6,19.7 7.8,19.9 8.1,19.9 L12.1,19.9 C12.3,19.9 12.6,19.7 12.6,19.5 L13,16.9 C13.6,16.6 14.2,16.3 14.7,15.9 L17.2,16.9 C17.4,17 17.7,16.9 17.8,16.7 L19.8,13.2 C19.9,13 19.9,12.7 19.7,12.6 L17.4,11 L17.4,11 Z M10,13.5 C8.1,13.5 6.5,11.9 6.5,10 C6.5,8.1 8.1,6.5 10,6.5 C11.9,6.5 13.5,8.1 13.5,10 C13.5,11.9 11.9,13.5 10,13.5 L10,13.5 Z" />
-    </svg> -->
-    <div id="options" class="close">
-      <svg id="hamburger" height="1rem" viewBox="0 0 25 25" width="1rem" xmlns="http://www.w3.org/2000/svg">
+
+    <div id="start">
+      <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <path
-          d="M0,4 C0,2.8954305 0.889763236,2 2.00359486,2 L22.9964051,2 C24.10296,2 25,2.88772964 25,4 C25,5.1045695 24.1102368,6 22.9964051,6 L2.00359486,6 C0.897039974,6 0,5.11227036 0,4 L0,4 Z M0,12 C0,10.8954305 0.889763236,10 2.00359486,10 L22.9964051,10 C24.10296,10 25,10.8877296 25,12 C25,13.1045695 24.1102368,14 22.9964051,14 L2.00359486,14 C0.897039974,14 0,13.1122704 0,12 L0,12 Z M0,20 C0,18.8954305 0.889763236,18 2.00359486,18 L22.9964051,18 C24.10296,18 25,18.8877296 25,20 C25,21.1045695 24.1102368,22 22.9964051,22 L2.00359486,22 C0.897039974,22 0,21.1122704 0,20 L0,20 Z" />
+          d="M50,5A45,45,0,1,0,95,50,45.00058,45.00058,0,0,0,50,5Zm0,88A43.00024,43.00024,0,1,1,80.40552,80.40552,42.86137,42.86137,0,0,1,50,93Z" />
+        <path
+          d="M69.78345,47.76355,40.96753,29.40466a2.54663,2.54663,0,0,0-1.37195-.4046,2.5884,2.5884,0,0,0-1.81012.74756A2.64065,2.64065,0,0,0,37,31.64111V68.35889a2.64062,2.64062,0,0,0,.78546,1.89343,2.588,2.588,0,0,0,1.81012.74756,2.54663,2.54663,0,0,0,1.37195-.4046L69.78345,52.23645a2.66383,2.66383,0,0,0,0-4.4729Zm-1.07477,2.78619L39.89282,68.90857a.54048.54048,0,0,1-.29724.09131.591.591,0,0,1-.40777-.17353A.634.634,0,0,1,39,68.35889V31.64111a.63378.63378,0,0,1,.18781-.46746.59111.59111,0,0,1,.40777-.17359.54161.54161,0,0,1,.29724.09131L68.70874,49.45032a.66419.66419,0,0,1-.00006,1.09942Z" />
       </svg>
     </div>
-    <header>
-      <h1 id="question">Add/Subtract</h1>
-      <h3 id="subtitle">Just Signs, with Grouping</h3>
-    </header>
-    <section id="working-page">
-      <progress id="progress" max="60" value="0" aria-label="progress bar"></progress>
-      <button id="begin">begin</button>
-      <section id="instructions">instructions</section>
-      <section id="response">response</section>
-      <article>
-        <!-- <div id="keyboard">
+
+    <div id="burger-wrap">
+      <svg id="indicator" class="rotate" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 7H2v6h8v5l8-8-8-8v5z" />
+      </svg>
+      <div id="hamburger" class="flex center rotate">
+        <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M499.5 332c0-5.66-3.112-11.13-8.203-14.07l-46.61-26.91C446.8 279.6 448 267.1 448 256s-1.242-23.65-3.34-35.02l46.61-26.91c5.092-2.941 8.203-8.411 8.203-14.07c0-14.1-41.98-99.04-63.86-99.04c-2.832 0-5.688 .7266-8.246 2.203l-46.72 26.98C362.9 94.98 342.4 83.1 320 75.16V21.28c0-7.523-5.162-14.28-12.53-15.82C290.8 1.977 273.7 0 256 0s-34.85 1.977-51.48 5.461C197.2 7.004 192 13.76 192 21.28v53.88C169.6 83.1 149.1 94.98 131.4 110.1L84.63 83.16C82.08 81.68 79.22 80.95 76.39 80.95c-19.72 0-63.86 81.95-63.86 99.04c0 5.66 3.112 11.13 8.203 14.07l46.61 26.91C65.24 232.4 64 244 64 256s1.242 23.65 3.34 35.02l-46.61 26.91c-5.092 2.941-8.203 8.411-8.203 14.07c0 14.1 41.98 99.04 63.86 99.04c2.832 0 5.688-.7266 8.246-2.203l46.72-26.98C149.1 417 169.6 428.9 192 436.8v53.88c0 7.523 5.162 14.28 12.53 15.82C221.2 510 238.3 512 255.1 512s34.85-1.977 51.48-5.461C314.8 504.1 320 498.2 320 490.7v-53.88c22.42-7.938 42.93-19.82 60.65-34.97l46.72 26.98c2.557 1.477 5.416 2.203 8.246 2.203C455.3 431 499.5 349.1 499.5 332zM256 336c-44.11 0-80-35.89-80-80S211.9 176 256 176s80 35.89 80 80S300.1 336 256 336z" />
+        </svg>
+      </div>
+    </div>
+
+    <!-- WORKING PAGE -->
+    <article id="work">
+
+      <!-- GO BUTTONS -->
+      <section>
+        
+      </section>
+
+      <!-- INPUTS -->
+      <section id="sdfa" display="none">
+
+        <progress id="progress" max="60" value="0" aria-label="progress bar"></progress>
+
+        <div id="inputs">
+
+          <div id="keyboard">
             <div id="k7">7</div>
             <div id="k8">8</div>
             <div id="k9">9</div>
@@ -45,49 +66,70 @@
             <div id="k0">0</div>
             <div id="kd">.</div>
             <div id="kn">&#8212;</div>
-          </div> -->
-        <div id="signs">
-          <div class="sign" id="neg">-</div>
-          <div class="sign" id="zer"></div>
-          <div class="sign" id="pos">+</div>
+          </div>
+
+          <div id="signs">
+            <div class="sign" id="neg">-</div>
+            <div class="sign" id="zer"></div>
+            <div class="sign" id="pos">+</div>
+          </div>
+
+          <div id="check">
+            <svg id="Icons" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path class="cls-1"
+                d="M12,0A12,12,0,1,0,24,12,12.013,12.013,0,0,0,12,0Zm0,22A10,10,0,1,1,22,12,10.011,10.011,0,0,1,12,22Z" />
+              <path class="cls-1"
+                d="M16.293,8.293,10,14.586,7.707,12.293a1,1,0,0,0-1.414,1.414l3,3a1,1,0,0,0,1.414,0l7-7a1,1,0,0,0-1.414-1.414Z" />
+            </svg>
+          </div>
+
         </div>
-      </article>
-    </section>
+
+      </section>
+
+    </article>
+
+    <!-- OPTIONS PAGE -->
+    <article id="options">
+
+      <div>options</div>
+
+      <ul>
+        <li class="radioGroup">
+          <input id="d1" type="radio" name="difficulty" value="1" checked /><label for="d1"> easy</label><br>
+          <input id="d2" type="radio" name="difficulty" value="2" /><label for="d2"> medium</label><br>
+          <input id="d3" type="radio" name="difficulty" value="3" /><label for="d3"> hard</label>
+        </li>
+        <li class="radioGroup">
+          <input id="c1" type="radio" name="palette" value="1" checked /><label for="c1"> palette1</label><br>
+          <input id="c2" type="radio" name="palette" value="2" /><label for="c2"> palette2</label><br>
+          <input id="c3" type="radio" name="palette" value="3" /><label for="c3"> palette3</label>
+        </li>
+        <li class="radioGroup">
+          <input id="t2" type="radio" name="gameType" value="so" /><label for="l2"> sign only</label><br>
+          <input id="t3" type="radio" name="gameType" value="sa" /><label for="l3"> sign & solution</label>
+        </li>
+        <li class="radioGroup">
+          <input id="l1" type="radio" name="timer" value="60" checked /><label for="l1"> 1min</label><br>
+          <input id="l2" type="radio" name="timer" value="120" /><label for="l2"> 2min</label><br>
+          <input id="l3" type="radio" name="timer" value="180" /><label for="l3"> 3min</label>
+        </li>
+        <li>results, longest streak...</li>
+        <li><input type="checkbox" id="sound" checked /> sound</li>
+        <li><input type="checkbox" id="vibes" checked /> vibration</li>
+        <li><input type="checkbox" id="darkm" /> dark mode</li>
+        <li>share</li>
+        <li>timed or by number of questions</li>
+      </ul>
+
+      <button>save/guardar</button>
+
+    </article>
+
   </main>
-  <article id="options" class="fullPage">
-    <div id="closeOptions" class="close">&times;</div>
-    <!-- <div id="" class="opt"></div> -->
-    <h2>options</h2>
-    <ul>
-      <li class="radioGroup">
-        <input id="d1" type="radio" name="difficulty" value="1" checked /><label for="d1"> beginner</label><br>
-        <input id="d2" type="radio" name="difficulty" value="2" /><label for="d2"> intermediate</label><br>
-        <input id="d3" type="radio" name="difficulty" value="3" /><label for="d3"> advanced</label>
-      </li>
-      <hr>
-      <li class="radioGroup">
-        <input id="t2" type="radio" name="gameType" value="so" /><label for="l2"> sign only</label><br>
-        <input id="t3" type="radio" name="gameType" value="sa" /><label for="l3"> sign & solution</label>
-      </li>
-      <li class="radioGroup">
-        <input id="l1" type="radio" name="timer" value="60" checked/><label for="l1"> 1min</label><br>
-        <input id="l2" type="radio" name="timer" value="120" /><label for="l2"> 2min</label><br>
-        <input id="l3" type="radio" name="timer" value="180" /><label for="l3"> 3min</label>
-      </li>
-      <li>results, longest streak...</li>
-      <li>english/spanish</li>
-      <li><input type="checkbox" id="sound" checked /> sound</li>
-      <li><input type="checkbox" id="vibes" checked /> vibration</li>
-      <li><input type="checkbox" id="darkm"  /> dark mode</li>
-      <li>share</li>
-      <li>timed or by number of questions</li>
-    </ul>
-  </article>
-  <div id="toast">correct!</div>
-  <article id="stats" class="top">
-    <div id="closeStats" class="close">&times;</div>
-    <ol id="list"></ol>
-  </article>
+
+  <footer id="toast" style="display:none">correct!</footer>
+
   <script defer src="./script.js"></script>
 </body>
 

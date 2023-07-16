@@ -1,39 +1,32 @@
 !(function () {
 
-  const options = document.getElementById("options");
+  const burger = document.getElementById("hamburger");
   const stats = document.getElementById("stats");
-  const begin = document.getElementById("begin");
+  const begin = document.getElementById("start");
   const right = new Audio("./right.mp3");
   const wrong = new Audio("./wrong.mp3");
   const arr = [];
   let sound = document.getElementById("sound");
   let vibes = document.getElementById("vibes");
-  let lights = false,
-    question,
+  let question,
     answer,
     diff = "med",
     n = 1,
     tt;
   
   // OPTIONS
-  options.addEventListener("click", () => {
+  burger.addEventListener("click", function () {
     const opts = document.getElementById("options");
-    opts.style.left = 0;
-    document.getElementById("closeOptions").addEventListener("click", () => opts.style.left = "100vw");
+    if (this.classList.contains("rotate")) {
+      this.classList.remove("rotate");
+      opts.style.left = 0;
+      open = true;
+    } else {
+      this.classList.add("rotate");
+      opts.style.left = "100vw";
+      open = false;
+    }
   });
-
-  // STATS
-  document.getElementById("closeStats").addEventListener("click", () => stats.style.left = "100vw");
-
-
-  // DARK MODE TOGGLE
-  document.getElementById("darkm").addEventListener("change", () => {
-    const r = document.querySelector(':root');
-    r.style.setProperty('--lite', lights === true ? '#fff' : '#000');
-    r.style.setProperty('--dark', lights === true ? '#000' : '#fff');
-    lights === true ? lights = false : lights = true;
-  });
-  // let lights = false;
 
   // TIMER
   begin.addEventListener("click", () => {
