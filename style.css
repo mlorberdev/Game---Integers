@@ -1,187 +1,191 @@
-:root {
-  --key: calc(min(17vw, 17vh));
-  --dark: #333;
-  --lite: #fff;
-}
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 * {
-  margin: 0;
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body {
+:root {
+  --key: calc(min(17vw, 17vh));
+  --dark: #111;
+  --lite: #fff;
+  --color1: #941313;
+}
+
+body,
+input[type=text] {
+  font-family: "Oswald", sans-serif;
+}
+input[type=text] {
+  font-size:1rem;
+  text-align: center;
+}
+
+.fixed {
   position: fixed;
-  top: 0;
-  left: 0;
+}
+
+.full {
   width: 100vw;
   height: 100vh;
-  transition: all .2s linear;
-  font-family: sans-serif;
+}
+
+.top {
+  top: 0;
+}
+
+.top.offset {
+  top: 3rem;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.left {
+  left: 0;
+}
+
+.left.offset {
+  left: 2rem;
+}
+
+.right {
+  right: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.vertical {
+  align-items: center;
+}
+
+.horizontal {
+  justify-content: center;
+}
+
+.width {
+  width: 100vw;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.scroll {
+  overflow-y: scroll;
+}
+
+.button {
+  font-family: "Oswald", sans-serif;
+}
+
+.bottom.button {
+  padding: .5rem 0;
+  margin-bottom: 3rem;
+  width: calc(100vw - 4rem);
+  border-radius: .75rem;
+  border: none;
   background-color: var(--dark);
   color: var(--lite);
 }
 
-main {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.bottom.button.second_button {
+  background-color: var(--lite);
+  color: var(--dark);
+  margin-bottom: 6rem;
 }
 
-header {
-  position: absolute;
-  top: 1rem;
-  text-align: center;
+.svg.fill {
+  fill: var(--dark);
 }
 
-article {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.gear {
+  animation: turn 4s linear infinite;
 }
 
-ul>li {
-  list-style-type: none;
-  padding: .5rem;
-}
-.fixed {
-  position:fixed;
-}
-.flex {
-  display:flex;
-}
-.center {
-  align-items: center;
-  justify-content: center;
-}
-.rotate {
-  transform-origin: center center;
-  transform:rotate(45deg);
-}
-#start {
-  width:4rem;
-  height:4rem;
-}
-#start>svg {
-  stroke:var(--lite);
-}
-#inputs {
-  display:none;
-}
-#burger-wrap {
-  position:fixed;
-  bottom:0;
-  right:0;
-  z-index: 200;
-}
-#indicator {
-  position:absolute;
-  top:-6rem;
-  left:-6rem;
-  width:3rem;
-  fill:var(--lite);
-}
-#hamburger {
-  font-size: 2rem;
-  font-weight: bold;
-  position:fixed;
-  bottom:1rem;
-  right:1rem;
-  width:2.5rem;
-  height:2.5rem;
-  transition: transform .3s linear;
-}
-#hamburger>svg {
-  fill:var(--lite);
-  width:1.3rem;
+@keyframes turn {
+  0% {
+    transform: rotate(0deg)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
 }
 
-#options {
-  font-size:1.2rem;
-  font-weight:400;
-  flex-direction: column;
-  overflow-y: scroll;
-  /* padding: 1rem; */
-  position: fixed;
-  top: 0;
-  left: 100vw;
-  z-index: 100;
-  transition: left .3s ease;
-  background-color: #000000df;
-  color: #fff;
-}
-
-#progress {
-  visibility: hidden;
-  position: fixed;
-  top: .2rem;
-  left: 1rem;
-  width: calc(100vw - 2rem);
-  transition: value 1s linear;
-}
-
-#keyboard,
-.sign {
-  /* font-family: squada; */
+#fullscreen {
+  width:1.5rem;
+  margin:2rem;
+  z-index:300;
 }
 
 #keyboard {
   display: grid;
-  grid: auto-flow / 1fr 1fr 1fr;
+  grid: auto-flow / var(--key) var(--key) var(--key);
   grid-gap: .2rem;
 }
 
-#keyboard>div,
-.sign {
+#keyboard>div {
   user-select: none;
   font-weight: bold;
   font-size: 1.5rem;
   padding: 1.5rem;
   width: var(--key);
   height: var(--key);
-  border: 3px solid var(--dark);
-  color: var(--dark);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: border-radius .5s ease-in-out;
+  background-color: var(--dark);
+  color: var(--lite);
 }
 
-#signs {
+#progress {
+  width: calc(min(80vw, 80vh));
+}
+
+#nn,
+#pp {
+  font-family: monospace !important;
+  font-size: 1.8rem !important;
+}
+
+#goal {
+  font-size: 2rem;
+}
+
+.submit {
+  background-color: transparent;
+  transform-origin: center center;
+  min-width: fit-content;
+  padding:.5rem 1.5rem;
+}
+.submit.btn_left {
+  transform:rotate(90deg);
+  margin-left:1rem;
+}
+.submit.btn_right {
+  transform:rotate(-90deg);
+  margin-right:1rem;
+}
+
+.big {
+  font-size: 3rem;
+}
+
+.none {
+  display: none;
+}
+
+.hide {
   visibility: hidden;
-  display: flex;
-  flex-direction: row;
-}
-
-.sign {
-  font-size: 2.2rem;
-  margin: .2rem;
-}
-
-#keyboard>div:active,
-.sign:active {
-  border-radius: 0;
-}
-
-.btn {
-  font-size: 1.4rem;
-  border-radius: 1.4rem;
-  padding:.5rem 1rem;
-  border:2px solid var(--lite);
-}
-
-footer {
-  position:fixed;
-  bottom:0;
-  width:100vw;
 }
