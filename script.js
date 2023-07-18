@@ -14,7 +14,8 @@
   // Answer to each question
   let A;
 
-  // Listens to options page choices and updates <timed> and DOM options page radio group, for timed or not timed session
+  // Listens to options page choices and updates DOM options page radio group
+  // If the option for a timed session is chosen, updates the var <timed>
   document.querySelectorAll("input[name=torn]").forEach(e => e.addEventListener("click", function () {
     this.id === "nn" ? timed = false : timed = true;
     for (let i = 0; i < 3; i++) document.getElementsByClassName("qts")[i].innerHTML = timed === false ? ` ${30 * (i + 1)}q` : ` ${60 * (i + 1)}s`;
@@ -33,6 +34,8 @@
   // Globals for response behavior
   let sound = document.getElementById("sound");
   let vibes = document.getElementById("vibes");
+  // Global for score
+  let score = 0;
 
   // FULLSCREEN
   // document.getElementById("fullscreen").addEventListener("click", () => { document.body.requestFullscreen(); });
@@ -74,7 +77,7 @@
 
   // PRACTICE START
   document.getElementById("lets_go").addEventListener("click", function () {
-
+    console.log(timed); return;
     // Interval for timed session; updates progress bar on each tick
     timed === true ? int = setInterval(() => { pr.value < tt ? pr.value++ : stopTimer(int) }, 1000) : int = int;
 
@@ -170,6 +173,7 @@
         if (sound.checked) right.play();
         if (vibes.checked) navigator.vibrate(100);
         arr.push("✅");
+        score++;
       }
       else {
         if (sound.checked) wrong.play();
@@ -180,7 +184,7 @@
         arr.push("❌");
       }
       if (pr.value < pr.max) {
-        pr.value++;
+        if (timed === false) pr.value++;
         ask();
       } else {
         endPractice();
@@ -189,7 +193,6 @@
 
     // End practice session and display stats page
     function endPractice() {
-      console.log("end of practice");
       // clearInterval(int);
       const frag = new DocumentFragment();
       for (let i = 0; i < arr.length - 1; i += 2) {
@@ -198,6 +201,12 @@
         frag.appendChild(ele);
       }
       document.getElementById("list").appendChild(frag);
+      document.getElementById("correct").innerHTML = score;
+      document.getElementById("total").innerHTML = pr.max;
+      document.getElementById("percent").innerHTML = `${Math.floor(score / pr.max * 100)} %`;
+
+
+      // Switch pages
       practice.classList.add("none");
       stats.classList.remove("none");
     }

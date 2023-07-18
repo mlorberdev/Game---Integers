@@ -30,6 +30,10 @@ input[type=text] {
   position: fixed;
 }
 
+.relative {
+  position:relative;
+}
+
 .full {
   width: 100vw;
   height: 100vh;

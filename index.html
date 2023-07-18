@@ -85,7 +85,7 @@
 
   <article id="practice" class="fixed full flex top left horizontal column none">
     <section class="width fixed top left flex horizontal">
-      <progress id="progress" max="60" value="0"></progress>
+      <progress id="progress" max="60" value="1"></progress>
     </section>
     <section class="fixed top offset flex horizontal width">
       <div class="big flex row">
@@ -102,8 +102,22 @@
     </section>
   </article>
 
-  <article id="stats" class="fixed full flex top left horizontal column scroll none">
-    <div id="list"></div>
+  <article id="stats" class="fixed full flex top left horizontal column none">
+    <section class="fixed top left full flex column width">
+      <div class="fixed top left offset flex horizontal column">
+        <h2>Congrats! / ¡Felicidads!</h2>
+        <h4>
+          <span id="correct"></span>
+          <span> / </span>
+          <span id="total"></span>
+          <span> = </span>
+          <span id="percent"></span>
+        </h4>
+      </div>
+      <div class="flex width horizontal scroll" style="position:fixed;top:30%;max-height:50vh;">
+        <ol id="list"></ol>
+      </div>
+    </section>
   </article>
 
   <script defer src="./script.js"></script>
