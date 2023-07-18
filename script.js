@@ -1,6 +1,14 @@
 !(function () {
 
 
+  document.querySelectorAll("input[name=torn]").forEach(e => e.addEventListener("click", function () {
+    this.id === "nn" ? timed = false : timed = true;
+    const qts = document.getElementsByClassName("qts");
+    for (let i = 0; i < 3; i++) qts[i].innerHTML = timed === false ? ` ${30 * (i + 1)}q` : ` ${60 * (i + 1)}s`;
+  }));
+
+  
+
   const intro = document.getElementById("intro_page");
   const practice = document.getElementById("practice");
   const check = document.getElementById("ready_check");
@@ -13,10 +21,13 @@
   const arr = [];
   let sound = document.getElementById("sound");
   let vibes = document.getElementById("vibes");
-  let diff = "med",
-    n = 1,
-    tt = 60;
+  let timed;
+  
+  function progressSetup() {
+    
+  }
 
+// go back
   // FULLSCREEN
   // document.getElementById("fullscreen").addEventListener("click", () => { document.body.requestFullscreen(); });
 
@@ -54,7 +65,7 @@
       let b = Math.floor(Math.random() * 10);
       let Q, A, oo;
       if (diff === "med") b *= Math.random() < .5 ? -1 : 1;
-      console.log(op);
+      
       switch (op) {
         case "add": Q = `${a} + ${b}`; A = a + b; break;
         case "sub": Q = `${a} - ${b}`; A = a - b; break;
@@ -102,6 +113,8 @@
       document.getElementById("list").appendChild(frag);
       setTimeout(() => stats.style.left = 0, 500);
     }
+
+    // HELPERS
   });
 
 
