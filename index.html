@@ -30,7 +30,7 @@
 
   <article id="options" class="fixed full flex column top left horizontal vertical scroll none">
     <img class="icon_opts" src="./favicon.webp"/>
-    <!-- <svg id="go_back" viewBox="0 0 32 32" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg">
+    <!-- <svg viewBox="0 0 32 32" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg">
       <path d="M31,16A15,15,0,1,1,16,1,15,15,0,0,1,31,16ZM3,16A13,13,0,1,0,16,3,13,13,0,0,0,3,16Z" />
       <path
         d="M19.87,10.41,14.29,16l5.58,5.59a1,1,0,0,1,0,1.41h0a1,1,0,0,1-1.41,0L12.1,16.64a.91.91,0,0,1,0-1.28L18.46,9a1,1,0,0,1,1.41,0h0A1,1,0,0,1,19.87,10.41Z" />
@@ -39,43 +39,31 @@
       <h2>Options / Opciones</h2>
       <h4>Choose your options / Elige tus opciones</h4>
     </div>
+
     <div class="flex column">
-      <section id="q_type">
-        <input id="o1" type="radio" name="operation" value="add" checked />
-        <label for="o1"> add & subtract / sumar & sustraer</label><br>
-        <input id="o2" type="radio" name="operation" value="mul" />
-        <label for="o3"> multiply & divide / multiplicar & dividir</label><br>
-        <input id="o3" type="radio" name="operation" value="any" />
-        <label for="o3"> any / todo</label><br>
+      <section>
+        <input id="o1" type="radio" name="operation" value="add" checked /><label for="o1"> add & subtract / sumar & sustraer</label><br>
+        <input id="o2" type="radio" name="operation" value="mul" /><label for="o3"> multiply & divide / multiplicar & dividir</label><br>
+        <input id="o3" type="radio" name="operation" value="any" /><label for="o3"> any / todo</label><br>
       </section>
-    
-      <section id="q_diff">
-        <input id="d1" type="radio" name="difficulty" value="1" checked /><label for="d1"> easy / fácil</label><br>
-        <input id="d3" type="radio" name="difficulty" value="2" /><label for="d3"> difficult / dificil</label>
+      <hr>
+      <section>
+        <input id="nn" type="radio" name="torn" value="2" checked /><label for="nn"> count / contar</label><br>
+        <input id="tt" type="radio" name="torn" value="1" /><label for="tt"> time / tiempo</label>
       </section>
-
-      <section id="q_torn">
-        <input id="tt" type="radio" name="torn" value="1" checked /><label for="tt"> time / tiempo</label><br>
-        <input id="nn" type="radio" name="torn" value="2" /><label for="nn"> count / contar</label>
+      <hr>
+      <section>
+        <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 30q</label><br>
+        <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 60q</label><br>
+        <input id="s3" type="radio" name="time" value="3" /><label class="qts" for="s3"> 90q</label>
       </section>
-
-      <section id="q_time">
-        <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 60s</label><br>
-        <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 120s</label><br>
-        <input id="s3" type="radio" name="time" value="3" /><label class="qts" for="s3"> 180s</label>
+      <hr>
+      <section>
+        <input type="checkbox" id="sound" checked /><label for="sound">sound / sonido</label><br>
+        <input type="checkbox" id="vibes" checked /><label for="vibes">vibration / vibración</label><br>
+        <input type="checkbox" id="fracs" /><label for="vibes" class="strikethrough">fractions</label><br>
+        <input type="checkbox" id="varis" /><label for="vibes" class="strikethrough">variables</label>
       </section>
-
-      <section id="senses">
-        <input type="checkbox" id="sound" checked />
-        <label for="sound">sound / sonido</label><br>
-        <input type="checkbox" id="vibes" checked />
-        <label for="vibes">vibration / vibración</label><br>
-        <input type="checkbox" id="fracs" />
-        <label for="vibes" class="strikethrough">fractions</label><br>
-        <input type="checkbox" id="varis" />
-        <label for="vibes" class="strikethrough">variables</label>
-      </section>
-      
     </div>
     
     <button id="set_options" class="fixed bottom button">save / guardar</button>
@@ -87,11 +75,11 @@
       <path id="gear" class="svg fill"
         d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
     </svg>
-    <section>
-      <div>You have 60 seconds. Good Luck!</div>
-      <div>Tienes 60 segundos. ¡Buena suerte!</div>
-    </section>
-    <button class="fixed bottom button second_button">back / volver</button>
+    <div class="fixed top left offset flex column">
+      <h2><span id="byTime"></span><span id="units"></span></h2>
+      <h4>Good Luck! / ¡Buena suerte!</h4>
+    </div>
+    <button id="goback" class="fixed bottom button second_button">back / volver</button>
     <button id="lets_go" class="fixed bottom button">go / ir</button>
   </article>
 
@@ -102,23 +90,20 @@
     <section class="fixed top offset flex horizontal width">
       <div class="big flex row">
         <div id="question"></div>
-        <span>&nbsp;&nbsp;&nbsp;=&nbsp;&nbsp;&nbsp;</span>
-        <div id="answer">?</div>
+        <div id="answer"></div>
       </div>
     </section>
     <section class="flex horizontal vertical row width">
       <div id="keyboard">
-        <div id="nn">-</div>
-        <div id="k0">0</div>
-        <div id="pp">+</div>
+        <div id="nnn">-</div>
+        <div id="zzz">0</div>
+        <div id="ppp">+</div>
       </div>
     </section>
   </article>
 
-  <article>
-    <section id="stats">
-      <div id="list"></div>
-    </section>
+  <article id="stats" class="fixed full flex top left horizontal column scroll none">
+    <div id="list"></div>
   </article>
 
   <script defer src="./script.js"></script>

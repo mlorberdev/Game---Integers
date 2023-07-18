@@ -165,6 +165,7 @@ input[type=text] {
 
 progress {
   width: calc(min(80vw, 80vh));
+  margin-top: 1rem;
 }
 
 #nn,
