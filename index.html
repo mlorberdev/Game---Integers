@@ -20,8 +20,8 @@
     <div class="fixed top left offset flex column">
       <h2>Integers Practice</h2>
       <h4>Practice your skills</h4>
-      <!-- <h2>Practicar Enteros</h2>
-      <h4>Practica tus habilidades</h4> -->
+      <h2>Practicar Enteros</h2>
+      <h4>Practica tus habilidades</h4>
     </div>
     <img id="icon" src="./favicon.webp"/>
     <button class="fixed bottom button second_button">Sign Up</button>
@@ -85,7 +85,7 @@
 
   <article id="practice" class="fixed full flex top left horizontal column none">
     <section class="width fixed top left flex horizontal">
-      <progress id="progress" max="60" value="1"></progress>
+      <progress id="progress" max="60" value="0"></progress>
     </section>
     <section class="fixed top offset flex horizontal width">
       <div class="big flex row">
@@ -102,7 +102,7 @@
     </section>
   </article>
 
-  <article id="stats" class="fixed full flex top left horizontal column none">
+  <article id="stats" class="fixed full flex column top left horizontal vertical none">
     <section class="fixed top left full flex column width">
       <div class="fixed top left offset flex horizontal column">
         <h2>Congrats! / ¡Felicidads!</h2>
@@ -115,9 +115,12 @@
         </h4>
       </div>
       <div class="flex width horizontal scroll" style="position:fixed;top:30%;max-height:50vh;">
-        <ol id="list"></ol>
+        <ol>
+          <div id="list"></div>
+        </ol>
       </div>
     </section>
+    <button id="go_again" class="fixed bottom button">practice again / practicar de nuevo</button>
   </article>
 
   <script defer src="./script.js"></script>
