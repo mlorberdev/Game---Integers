@@ -7,8 +7,9 @@
   let int; // Var <int> --> timer for timed session nn, op;
   // Globals for DOM traversal & manipulation
   const intro = document.getElementById("intro_page");
-  const practice = document.getElementById("practice");
+  const skills = document.getElementById("skills");
   const check = document.getElementById("ready_check");
+  const practice = document.getElementById("practice");
   const stats = document.getElementById("stats");
   const list = document.getElementById("list");
   const qq = document.getElementById("question");
@@ -29,7 +30,7 @@
   // If the option for a timed session is chosen, updates the var <timed>
   document.querySelectorAll("input[name=torn]").forEach(e => e.addEventListener("click", function () {
     this.id === "nn" ? timed = false : timed = true;
-    for (let i = 0; i < 3; i++) document.getElementsByClassName("qts")[i].innerHTML = timed === false ? ` ${30 * (i + 1)}q` : ` ${60 * (i + 1)}s`;
+    for (let i = 0; i < 3; i++) document.getElementsByClassName("qts")[i].innerHTML = timed === false ? ` ${30 * (i + 1)} q` : ` ${60 * (i + 1)} s`;
   }));
 
   // FULLSCREEN
@@ -38,7 +39,7 @@
   // EXIT INTRO
   document.getElementById("start").addEventListener("click", function () {
     intro.classList.add("none"); // Switch to next screen
-    options.classList.remove("none");
+    skills.classList.remove("none");
   });
 
   // SAVE OPTIONS
@@ -52,6 +53,12 @@
     options.classList.add("none");// Switch to next screen
     check.classList.remove("none");
   });
+
+  // GO BACK TO SKILLS
+  document.getElementById("goback_toskills").addEventListener("click", function () {
+    options.classList.add("none"); // Switch to previous screen
+    skills.classList.remove("none");
+  })
 
   // GO BACK TO OPTIONS
   document.getElementById("goback").addEventListener("click", function () {

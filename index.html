@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Practice App</title>
+  <title>Math Practice App</title>
   <link rel="stylesheet" href="./style.css" />
   <link rel="icon" href="./favicon.webp" />
 </head>
@@ -18,54 +18,69 @@
 
   <article id="intro_page" class="fixed full flex top left horizontal vertical column">
     <div class="fixed top left offset flex column">
-      <h2>Integers Practice</h2>
-      <h4>Practice your skills</h4>
-      <h2>Practicar Enteros</h2>
-      <h4>Practica tus habilidades</h4>
+      <h2>Math Practice</h2>
+      <h2>Practica Matematica</h2>
     </div>
     <img id="icon" src="./favicon.webp"/>
     <button class="fixed bottom button second_button">Sign Up</button>
     <button id="start" class="fixed bottom button">Login</button>
   </article>
 
-  <article id="options" class="fixed full flex column top left horizontal vertical scroll none">
+  <article id="skills" class="fixed full flex column top left horizontal vertical scroll none">
     <img class="icon_opts" src="./favicon.webp"/>
-    <!-- <svg viewBox="0 0 32 32" width="2rem" height="2rem" xmlns="http://www.w3.org/2000/svg">
-      <path d="M31,16A15,15,0,1,1,16,1,15,15,0,0,1,31,16ZM3,16A13,13,0,1,0,16,3,13,13,0,0,0,3,16Z" />
-      <path
-        d="M19.87,10.41,14.29,16l5.58,5.59a1,1,0,0,1,0,1.41h0a1,1,0,0,1-1.41,0L12.1,16.64a.91.91,0,0,1,0-1.28L18.46,9a1,1,0,0,1,1.41,0h0A1,1,0,0,1,19.87,10.41Z" />
-    </svg> -->
+    <div class="fixed top left offset flex column">
+      <h2>Skills / habilidades</h2>
+      <h4>Choose your skill / Elige tu habilidad</h4>
+    </div>
+
+    <fieldset class="flex column padded">
+      <legend>Math Facts / Hechos Matemáticos</legend>
+      <section>
+        <input id="o1" type="radio" name="operation" value="add" checked /><label for="o1"> add & subtract / sumar & sustraer</label><br>
+        <input id="o2" type="radio" name="operation" value="mul" /><label for="o3"> multiply & divide / multiplicar & dividir</label><br>
+        <input id="o3" type="radio" name="operation" value="any" /><label for="o3"> any / todo</label>
+      </section>
+    </fieldset>
+
+    <fieldset class="flex column padded">
+      <legend>Integers / Enteros</legend>
+      <section>
+        <input id="o1" type="radio" name="operation" value="add" checked /><label for="o1"> add & subtract / sumar & sustraer</label><br>
+        <input id="o2" type="radio" name="operation" value="mul" /><label for="o3"> multiply & divide / multiplicar & dividir</label><br>
+        <input id="o3" type="radio" name="operation" value="any" /><label for="o3"> any / todo</label>
+      </section>
+    </fieldset>
+
+    <button id="set_skills" class="fixed bottom button">save / guardar</button>
+  </article>
+
+  <article id="options" class="fixed full flex column top left horizontal vertical scroll none">
+    <img class="icon_opts" src="./favicon.webp" />
     <div class="fixed top left offset flex column">
       <h2>Options / Opciones</h2>
       <h4>Choose your options / Elige tus opciones</h4>
     </div>
-
-    <div class="flex column">
+    <fieldset class="flex column padded">
+      <legend>Options / Opciones</legend>
       <section>
-        <input id="o1" type="radio" name="operation" value="add" checked /><label for="o1"> add & subtract / sumar & sustraer</label><br>
-        <input id="o2" type="radio" name="operation" value="mul" /><label for="o3"> multiply & divide / multiplicar & dividir</label><br>
-        <input id="o3" type="radio" name="operation" value="any" /><label for="o3"> any / todo</label><br>
+        <input id="nn" type="radio" name="torn" value="2" checked /><label for="nn"> by count / por conteo</label><br>
+        <input id="tt" type="radio" name="torn" value="1" /><label for="tt"> by time / a tiempo</label>
       </section>
       <hr>
       <section>
-        <input id="nn" type="radio" name="torn" value="2" checked /><label for="nn"> count / contar</label><br>
-        <input id="tt" type="radio" name="torn" value="1" /><label for="tt"> time / tiempo</label>
-      </section>
-      <hr>
-      <section>
-        <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 30q</label><br>
-        <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 60q</label><br>
-        <input id="s3" type="radio" name="time" value="3" /><label class="qts" for="s3"> 90q</label>
+        <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 30 q</label><br>
+        <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 60 q</label><br>
+        <input id="s3" type="radio" name="time" value="3" /><label class="qts" for="s3"> 90 q</label>
       </section>
       <hr>
       <section>
         <input type="checkbox" id="sound" checked /><label for="sound">sound / sonido</label><br>
         <input type="checkbox" id="vibes" checked /><label for="vibes">vibration / vibración</label><br>
-        <input type="checkbox" id="fracs" /><label for="vibes" class="strikethrough">fractions</label><br>
-        <input type="checkbox" id="varis" /><label for="vibes" class="strikethrough">variables</label>
+        <input type="checkbox" id="fracs" /><label for="fracs" class="strikethrough">fractions</label><br>
+        <input type="checkbox" id="varis" /><label for="varis" class="strikethrough">variables</label>
       </section>
-    </div>
-    
+    </fieldset>
+    <button id="goback_toskills" class="fixed bottom button second_button">back / volver</button>
     <button id="set_options" class="fixed bottom button">save / guardar</button>
   </article>
 

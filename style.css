@@ -202,3 +202,12 @@ progress {
   z-index: -1;
   filter:opacity(.1);
 }
+
+/* --------------------- NEW --------------------- */
+
+.padded {
+  padding:1rem;
+}
+legend {
+  font-size: 1.5rem;
+}
