@@ -1,4 +1,4 @@
-export function integers(isReset, op, timed) {
+export function integers(isReset, op, timed, vtt, vff) {
   let arr = []; // Array holds questions and user responses, and x or check mark
   let int; // Var <int> --> timer for timed session nn, op;
   // Globals for DOM traversal & manipulation
@@ -83,12 +83,16 @@ export function integers(isReset, op, timed) {
   function ans(val) { // Evaluate answers
     if ((val === 1 && A > 0) || (val === 0 && A === 0) || (val === -1 && A < 0)) { // Correct answer
       if (sound.checked) right.play();
+      vtt.style.display = "flex";
+      setTimeout(()=> vtt.style.display = "none", 300);
       if (vibes.checked) navigator.vibrate(100);
       arr.push(`✅${Q} = ${A}`);
       score++;
     }
     else { // Incorrect answer
       if (sound.checked) wrong.play();
+      vff.style.display = "flex";
+      setTimeout(()=> vff.style.display = "none", 300);
       if (vibes.checked) {
         navigator.vibrate(100);
         setTimeout(navigator.vibrate(100), 50);

@@ -10,6 +10,8 @@ import { integers } from "./integers.js";
   let isReset = false; // Global for practicing again route
   let op; // Var <op> --> user choice from options: "add" is add/sub, "mult" is mult/div, "any" is any
   let timed = false; // Var <timed> --> true/false: is the session by time or by number of questions
+  const vtt = document.getElementById("vtt");
+  const vff = document.getElementById("vff");
 
 //globals
   
@@ -39,7 +41,7 @@ import { integers } from "./integers.js";
   document.getElementById("set_options").addEventListener("click", function () {
     document.getElementsByName("time").forEach(t => { if (t.checked) nn = t.value }); // Updates var <nn> with either time units in seconds or number of questions
     timed === true ? nn *= 60 : nn *= 30;
-    document.querySelectorAll("input[name=skill]").forEach(o => { if (o.checked) { op = o.value; console.log(op) } }); // Updates var <op> with operation set name
+    document.querySelectorAll("input[name=skill]").forEach(o => { if (o.checked) { op = o.value; } }); // Updates var <op> with operation set name
     document.getElementById("byTime").innerHTML = nn; // Updates DOM on options confirmation page and progress bar max
     document.getElementById("units").innerHTML = timed === true ? " seconds / segondos" : " questions / preguntas";
     document.getElementById("progress").max = nn;
@@ -77,6 +79,10 @@ import { integers } from "./integers.js";
   document.getElementById("lets_go").addEventListener("click", function () {
     check.classList.add("none"); // Switch visible pages
     practice.classList.remove("none");
-    integers(isReset, op, timed);
+    switch (op) {
+      case "add": case "mul": case "any": integers(isReset, op, timed, vtt, vff); break;
+      case "timestable": timesTable(isReset, timed);
+        
+    }
   });
 })();
