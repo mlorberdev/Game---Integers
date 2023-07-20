@@ -1,4 +1,4 @@
-export function integers(nn, isReset, op, timed) {
+export function integers(isReset, op, timed) {
   let arr = []; // Array holds questions and user responses, and x or check mark
   let int; // Var <int> --> timer for timed session nn, op;
   // Globals for DOM traversal & manipulation
@@ -29,7 +29,8 @@ export function integers(nn, isReset, op, timed) {
     }
 
 
-  function ask_integer(timed, op, Q) {
+  function ask_integer() {
+    console.log("asking");
     let a = Math.floor(Math.random() * 10) * (Math.random() < .5 ? -1 : 1); // First number in question
     let b = Math.floor(Math.random() * 10) * (Math.random() < .5 ? -1 : 1); // Second number in question
     let bb = Math.random() < .5 ? b : `(${b})`; // Text of numbers; either put grouping around second number or don't
@@ -76,7 +77,7 @@ export function integers(nn, isReset, op, timed) {
         A = a / b; break;
       default: break;
     }
-    document.getElementById("question").innerHTML = Q;
+    document.getElementById("question").innerHTML = Q; console.log(Q, A);
   }
 
   function ans(val) { // Evaluate answers

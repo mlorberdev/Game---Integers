@@ -73,13 +73,10 @@ import { integers } from "./integers.js";
     arr = [];
   });
 
-
-
-
   // PRACTICE START
   document.getElementById("lets_go").addEventListener("click", function () {
     check.classList.add("none"); // Switch visible pages
     practice.classList.remove("none");
-    integers(nn, isReset, op, timed);
+    integers(isReset, op, timed);
   });
 })();
