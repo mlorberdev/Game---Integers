@@ -171,16 +171,17 @@ input[type=text] {
   width: var(--key);
   height: var(--key);
   border-radius: 50%;
+  border: 3px solid var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-radius .3s ease-in;
-  background-color: var(--dark);
-  color: var(--lite);
+  transition: border-radius .5s ease-in-out, background-color .3s ease-in-out;
+  background-color: var(--lite);
+  color: var(--dark);
 }
 #keyboard>div:active {
-  border-radius:1rem;
-  /* transform:scale(1.1); */
+  border-radius:1.2rem;
+  background-color: #888;
 }
 /* .wide_key {
   width:calc(2 * var(--key)) !important;
