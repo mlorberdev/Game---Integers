@@ -174,14 +174,18 @@ input[type=text] {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-radius .5s ease-in-out;
+  transition: border-radius .3s ease-in;
   background-color: var(--dark);
   color: var(--lite);
 }
-.wide_key {
+#keyboard>div:active {
+  border-radius:1rem;
+  /* transform:scale(1.1); */
+}
+/* .wide_key {
   width:calc(2 * var(--key)) !important;
   border-radius:1rem !important;
-}
+} */
 
 progress {
   width: calc(min(80vw, 80vh));
