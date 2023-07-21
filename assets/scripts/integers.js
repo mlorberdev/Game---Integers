@@ -80,7 +80,6 @@ export function integers(isReset, op, timed, vtt, vff) {
       default: break;
     }
     document.getElementById("question").innerHTML = Q;
-    //console.log(Q, A);
   }
 
   function ans(val) { // Evaluate answers
@@ -105,9 +104,7 @@ export function integers(isReset, op, timed, vtt, vff) {
     }
     else { // Incorrect answer
       mistake++;
-      console.log("oops" + mistake + " mod 4 = " + mistake % 4,"mistakes = " + mistake);
       if (mistake % 4 === 0) {
-        console.log();
         setTimeout(() => aaa.innerHTML = "", 5000);
         aaa.innerHTML = "<div class='msg flex column width padded'><span>Don't worry. Mistakes help you learn!</span>" +
           "<span>No te preocupes. ¡Los errores te ayudan a aprender!</span></div>";
