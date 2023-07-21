@@ -46,7 +46,6 @@ import { mathfacts } from "./mathfacts.js";
   document.getElementById("set_options").addEventListener("click", function () {
     document.getElementsByName("time").forEach(t => { if (t.checked) nn = t.value }); // Updates var <nn> with either time units in seconds or number of questions
     timed === true ? nn *= 60 : nn *= 30;
-    document.querySelectorAll("input[name=skill]").forEach(o => { if (o.checked) { op = o.value; } }); // Updates var <op> with operation set name
     document.getElementById("byTime").innerHTML = nn; // Updates DOM on options confirmation page and progress bar max
     document.getElementById("units").innerHTML = timed === true ? " seconds / segondos" : " questions / preguntas";
     document.getElementById("progress").max = nn;
@@ -83,15 +82,13 @@ import { mathfacts } from "./mathfacts.js";
   // PRACTICE START
   document.getElementById("lets_go").addEventListener("click", function () {
     check.classList.add("none"); // Switch visible pages
-    practice.classList.remove("none");
-    document.querySelectorAll("input[name=skill]").forEach(s => {
-      if (s.checked && (s.id === "f1" || s.id === "f2" || s.id === "f3")) document.getElementById("keyboard").classList.remove("none");
-    });
+    document.querySelectorAll("input[name=skill]").forEach(o => { if (o.checked) { op = o.value; } }); // Updates var <op> with operation set name
     switch (op) {
       case "add": case "mul": case "any": integers(isReset, op, timed, vtt, vff); break;
-      case "timestable": case "maketens": case "numberfamilies": mathfacts(isReset, timed); break;
+      case "timestable": case "maketens": case "numberfamilies": case "onestep": mathfacts(isReset, timed); break;
       default: break;
     }
+    practice.classList.remove("none");
   });
 
 })();

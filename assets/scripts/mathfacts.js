@@ -39,11 +39,25 @@ export function mathfacts() {
         Q = `${a}`;
         A = 10 - a;
         break;
+      case "onestep":
+        showX();
+        a = rn(10) + 1; // Else questions such as 0x = 0 would be asked, where x can be anything
+        b = rn(10) + 1;
+        let sym = rn(2); // nb: can use for symbols ie prob types
+        switch (sym) {
+          case 0: Q = `${a}x = ${a * b}`; A = b; break; // div prop
+          case 1: Q = `${a * b} = ${a}x`; A = b; break; // div prop
+          default: break;
+        }
+      case "twostep":
+        // Q = `${a}x = ${a * b}x<sup>2</sup> ; x = ...`; A = b; break; // div prop
       default: break;
     }
     if (timed) num++; // increments the number of questions asked in timed practice
     qqq.innerHTML = Q;
   } ask();
+
+  function showX() { document.getElementById("showx").classList.remove("none"); }
 
   function evalKey() {
     let key = this.id.toString().charAt(1);
@@ -56,7 +70,6 @@ export function mathfacts() {
   }
 
   function ans() {
-
     if (parseInt(aaa.innerText) === A) { // Correct answer
       arr.push(`[${aaa.innerHTML}] ✅ ${Q} = ${A}`);
       score++;

@@ -188,11 +188,13 @@ input[type=text] {
   border-radius:1.2rem;
   background-color: var(--color2);
 }
-/* .wide_key {
+.wide_key {
   width:calc(2 * var(--key)) !important;
   border-radius:1rem !important;
-} */
-
+}
+sup {
+  font-size:2rem;
+}
 progress {
   width: calc(min(80vw, 80vh));
   margin-top: 1rem;
