@@ -17,6 +17,8 @@ export function integers(isReset, op, timed, vtt, vff) {
   let num = 0;// Global for number of questions asked in timed practice
   let Q; // Global question
   let A;// Global for answer to question
+  let mistake = 0; // Counts errors for a motiv msg
+  let aaa = document.getElementById("answer");
   
     // Interval for timed session updates progress bar on each tick; or, sets progress bar value to 1, for first question
     timed === true ? int = setInterval(() => { pr.value < pr.max ? pr.value++ : endPractice() }, 1000) : int = int;
@@ -77,7 +79,8 @@ export function integers(isReset, op, timed, vtt, vff) {
         A = a / b; break;
       default: break;
     }
-    document.getElementById("question").innerHTML = Q; console.log(Q, A);
+    document.getElementById("question").innerHTML = Q;
+    //console.log(Q, A);
   }
 
   function ans(val) { // Evaluate answers
@@ -97,9 +100,18 @@ export function integers(isReset, op, timed, vtt, vff) {
       setTimeout(()=> vtt.style.display = "none", 300);
       if (vibes.checked) navigator.vibrate(100);
       arr.push(`${sign(A)} ✅ ${Q} = ${A}`);
+      mistake = 0;
       score++;
     }
     else { // Incorrect answer
+      mistake++;
+      console.log("oops" + mistake + " mod 4 = " + mistake % 4,"mistakes = " + mistake);
+      if (mistake % 4 === 0) {
+        console.log();
+        setTimeout(() => aaa.innerHTML = "", 5000);
+        aaa.innerHTML = "<div class='msg flex column width padded'><span>Don't worry. Mistakes help you learn!</span>" +
+          "<span>No te preocupes. ¡Los errores te ayudan a aprender!</span></div>";
+      }
       if (sound.checked) wrong.play();
       vff.style.display = "flex";
       setTimeout(()=> vff.style.display = "none", 300);
@@ -118,7 +130,6 @@ export function integers(isReset, op, timed, vtt, vff) {
   } // End of function ans
 
   function endPractice() { // End practice session and display stats page
-    console.log("arr.length", arr.length);
     if (timed === true) clearInterval(int);
     const frag = new DocumentFragment(); // Write answers array to DOM
     for (let i = 0; i < arr.length; i ++) {

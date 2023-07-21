@@ -262,3 +262,6 @@ legend {
   background-color: var(--dark);
   color: var(--lite);
 }
+.msg {
+  font-size:1.2rem;
+}
