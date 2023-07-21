@@ -67,14 +67,14 @@
       <h4>Choose your options / Elige tus opciones</h4>
     </div>
     <fieldset class="flex column padded">
-      <legend>How?</legend>
+      <legend>How? / ¿Cómo?</legend>
       <section>
         <input id="nn" type="radio" name="torn" value="2" checked /><label for="nn"> by count / por conteo</label><br>
         <input id="tt" type="radio" name="torn" value="1" /><label for="tt"> by time / a tiempo</label>
       </section>
     </fieldset>
     <fieldset class="flex column padded">
-      <legend>Number or Time</legend>
+      <legend>How Much? / ¿Cuánto de eso?</legend>
       <section>
         <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 30 q</label><br>
         <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 60 q</label><br>
@@ -82,10 +82,10 @@
       </section>
     </fieldset>
     <fieldset class="flex column padded">
-      <legend>Feedback</legend>
+      <legend>Feedback / Realimentación</legend>
       <section>
-        <input type="checkbox" id="sound" checked /><label for="sound">sound / sonido</label><br>
-        <input type="checkbox" id="vibes" checked /><label for="vibes">vibration / vibración</label>
+        <input type="checkbox" id="sound" checked /><label for="sound"> sound / sonido</label><br>
+        <input type="checkbox" id="vibes" checked /><label for="vibes"> vibration / vibración</label>
       </section>
     </fieldset>
     <button id="goback_toskills" class="fixed bottom button second_button">back / volver</button>
@@ -113,7 +113,7 @@
     </section>
   
     <section class="fixed top offset flex horizontal width">
-      <div class="big flex row">
+      <div class="big flex column vertical">
         <div id="question"></div>
         <div id="answer"></div>
       </div>
@@ -147,9 +147,11 @@
         <div id="k8">8</div>
         <div id="k9">9</div>
         <div id="k0">0</div>
+        <div id="kb">⇐</div>
+        <div id="kc">↲</div>
       </div>
 
-      <div id="signs_pad" class="flex horizontal vertical row">
+      <div id="signs_pad" class="flex horizontal vertical row none">
         <div id="nnn" class="flex horizontal vertical">-</div>
         <div id="zzz" class="flex horizontal vertical">0</div>
         <div id="ppp" class="flex horizontal vertical">+</div>
@@ -175,6 +177,7 @@
         </ol>
       </div>
     </section>
+    <button id="go_home" class="fixed bottom button second_button">homepage / página inicial</button>
     <button id="go_again" class="fixed bottom button">practice again / practicar de nuevo</button>
   </article>
 

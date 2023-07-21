@@ -1,4 +1,5 @@
 import { integers } from "./integers.js";
+import { mathfacts } from "./mathfacts.js";
 
 !(function () {
   
@@ -33,6 +34,10 @@ import { integers } from "./integers.js";
 
   // CLOSE SKILLS & OPEN OPTIONS
   document.getElementById("set_skills").addEventListener("click", function () {
+
+    // if (document.getElementById("f1").checked) { // f1 is timestable
+      // document.getElementById("ttt").style.display = "none";
+    // }
     skills.classList.add("none");// Switch to next screen
     options.classList.remove("none");
   });
@@ -70,7 +75,7 @@ import { integers } from "./integers.js";
     score = 0;
     num = 0;
     stats.classList.add("none"); // Switch to options screen
-    options.classList.remove("none");
+    skills.classList.remove("none");
     isReset = true;
     arr = [];
   });
@@ -79,10 +84,14 @@ import { integers } from "./integers.js";
   document.getElementById("lets_go").addEventListener("click", function () {
     check.classList.add("none"); // Switch visible pages
     practice.classList.remove("none");
+    document.querySelectorAll("input[name=skill]").forEach(s => {
+      if (s.checked && (s.id === "f1" || s.id === "f2" || s.id === "f3")) document.getElementById("keyboard").classList.remove("none");
+    });
     switch (op) {
       case "add": case "mul": case "any": integers(isReset, op, timed, vtt, vff); break;
-      case "timestable": timesTable(isReset, timed);
-        
+      case "timestable": case "maketens": case "numberfamilies": mathfacts(isReset, timed); break;
+      default: break;
     }
   });
+
 })();

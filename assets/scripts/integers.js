@@ -1,4 +1,5 @@
 export function integers(isReset, op, timed, vtt, vff) {
+  document.getElementById("signs_pad").classList.remove("none");
   let arr = []; // Array holds questions and user responses, and x or check mark
   let int; // Var <int> --> timer for timed session nn, op;
   // Globals for DOM traversal & manipulation
@@ -30,7 +31,6 @@ export function integers(isReset, op, timed, vtt, vff) {
 
 
   function ask_integer() {
-    console.log("asking");
     let a = Math.floor(Math.random() * 10) * (Math.random() < .5 ? -1 : 1); // First number in question
     let b = Math.floor(Math.random() * 10) * (Math.random() < .5 ? -1 : 1); // Second number in question
     let bb = Math.random() < .5 ? b : `(${b})`; // Text of numbers; either put grouping around second number or don't
@@ -81,12 +81,22 @@ export function integers(isReset, op, timed, vtt, vff) {
   }
 
   function ans(val) { // Evaluate answers
+    const sign = (sn) => {
+      let temp;
+      switch (true) {
+        case (sn < 0): temp = "-"; break;
+        case (sn == 0): temp = "0"; break;
+        case (sn > 0): temp = "+"; break;
+        default: break;
+      }
+      return temp;
+    }
     if ((val === 1 && A > 0) || (val === 0 && A === 0) || (val === -1 && A < 0)) { // Correct answer
       if (sound.checked) right.play();
       vtt.style.display = "flex";
       setTimeout(()=> vtt.style.display = "none", 300);
       if (vibes.checked) navigator.vibrate(100);
-      arr.push(`✅${Q} = ${A}`);
+      arr.push(`${sign(A)} ✅ ${Q} = ${A}`);
       score++;
     }
     else { // Incorrect answer
@@ -97,7 +107,7 @@ export function integers(isReset, op, timed, vtt, vff) {
         navigator.vibrate(100);
         setTimeout(navigator.vibrate(100), 50);
       }
-      arr.push(`❌${Q} = ${A}`);
+      arr.push(`${sign(A)} ❌${Q} = ${A}`);
     }
     if (pr.value < pr.max) {
       if (timed === false) pr.value++;

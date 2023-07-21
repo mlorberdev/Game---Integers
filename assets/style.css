@@ -121,17 +121,29 @@ input[type=text] {
 }
 
 .gear {
-  animation: turn 4s linear infinite;
+  animation: turn .6s ease-in;
 }
 
 @keyframes turn {
   0% {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
+  }
+
+  5% {
+    transform: rotate(0deg);
   }
 
   100% {
-    transform: rotate(360deg)
+    transform: rotate(1080deg);
   }
+}
+
+#lets_go {
+  animation: flip .2s ease-in-out .64s 3;
+}
+@keyframes flip {
+  0%, 100% {filter:invert(0)}
+  50% {filter:invert(.5)}
 }
 
 #go_back {
@@ -145,13 +157,13 @@ input[type=text] {
   z-index:300;
 }
 
-/* #keyboard {
+#keyboard {
   display: grid;
   grid: auto-flow / var(--key) var(--key) var(--key);
   grid-gap: .2rem;
-} */
+}
 
-/* #keyboard>div {
+#keyboard>div {
   user-select: none;
   font-weight: bold;
   font-size: 1.5rem;
@@ -165,7 +177,11 @@ input[type=text] {
   transition: border-radius .5s ease-in-out;
   background-color: var(--dark);
   color: var(--lite);
-} */
+}
+.wide_key {
+  width:calc(2 * var(--key)) !important;
+  border-radius:1rem !important;
+}
 
 progress {
   width: calc(min(80vw, 80vh));
