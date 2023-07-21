@@ -1,5 +1,4 @@
 export function mathfacts() {
-  console.log("running math facts");
   document.getElementById("keyboard").classList.remove("none"); // Unhide keyboard
   document.querySelectorAll("#keyboard>div").forEach(key => key.addEventListener("click", evalKey));
   const right = new Audio("./assets/sounds/right.mp3");
@@ -12,17 +11,36 @@ export function mathfacts() {
   let vibes = document.getElementById("vibes").checked;
   let sound = document.getElementById("sound").checked;
   let pr = document.getElementById("progress");
-  let int, Q, A, arr = [], score = 0, num = 0;
+  let a, b, c, int, Q, A, arr = [], score = 0, num = 0, op;
   const rn = (z) => { return Math.floor(Math.random() * z); }
   // Interval for timed session updates progress bar on each tick; or, sets progress bar value to 1, for first question
   timed === true ? int = setInterval(() => { pr.value < pr.max ? pr.value++ : endPractice() }, 1000) : int = int;
   if (!timed) pr.value = 1;
+  // Check for practice type
+  document.querySelectorAll("input[name=skill]").forEach(s => { if (s.checked) op = s.value });
 
   function ask() {
-    let a = rn(11);
-    let b = rn(11);
-    Q = `${a} × ${b}`;
-    A = a * b;
+    
+    switch (op) {
+      case "timestable":
+        a = rn(11);
+        b = rn(11);
+        Q = `${a} × ${b}`;
+        A = a * b; 
+        break;
+      case "numberfamilies":
+        a = rn(10) + 1;
+        b = rn(10) + 1;
+        Q = `${a} , ${a * b}`;
+        A = b;
+        break;
+      case "maketens":
+        a = rn(11);
+        Q = `${a}`;
+        A = 10 - a;
+        break;
+      default: break;
+    }
     if (timed) num++; // increments the number of questions asked in timed practice
     qqq.innerHTML = Q;
   } ask();

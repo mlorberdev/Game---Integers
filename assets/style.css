@@ -11,6 +11,7 @@
   --dark: #111;
   --lite: #fff;
   --color1: #941313;
+  --color2: #941313bb;
 }
 
 body,
@@ -45,6 +46,10 @@ input[type=text] {
 
 .top.offset {
   top: 3rem;
+}
+
+.faded {
+  filter:opacity(.5);
 }
 
 .bottom {
@@ -181,7 +186,7 @@ input[type=text] {
 }
 #keyboard>div:active {
   border-radius:1.2rem;
-  background-color: #888;
+  background-color: var(--color2);
 }
 /* .wide_key {
   width:calc(2 * var(--key)) !important;
@@ -228,7 +233,7 @@ progress {
 #vtt,
 #vff {
   position:fixed;
-  top:25vh;
+  top:15vh;
   width:calc(min(20vw,20vh));
   height: calc(min(20vw, 20vh));
 }
@@ -245,22 +250,13 @@ legend {
 #signs_pad {
   font-size:3rem;
   font-weight:bold;
+  border: 3px solid var(--dark);
+  border-radius:3px;
 }
 #signs_pad>div {
-  width:calc(min(calc(33vw - 1rem), calc(33vh - 1rem)));
-  border:2px solid var(--dark);
-}
-#zzz {
   background-color: var(--lite);
-  color:var(--dark);
-}
-#nnn {
-  color: var(--lite);
-  background-color: #a70505;
-}
-#ppp {
-  background-color: var(--dark);
-  color: var(--lite);
+  color: var(--dark);
+  width:calc(min(calc(33vw - 1rem), calc(33vh - 1rem)));
 }
 .msg {
   font-size:1.2rem;
