@@ -48,12 +48,10 @@
     <fieldset class="flex column padded rolled">
       <legend>Integers / Enteros</legend>
       <section>
-        <input id="o1" type="radio" name="skill" value="add" />
+        <input id="o1" type="radio" name="skill" value="add_int" />
         <label for="o1"> Add & subtract / Sumar & sustraer</label><br>
-        <input id="o2" type="radio" name="skill" value="mul" />
+        <input id="o2" type="radio" name="skill" value="mul_int" />
         <label for="o3"> Multiply & divide / Multiplicar & dividir</label><br>
-        <input id="o3" type="radio" name="skill" value="any" />
-        <label for="o3"> Any / Todo</label><br>
       </section>
     </fieldset>
 
@@ -125,7 +123,7 @@
     <section class="fixed top offset flex horizontal width">
       <div class="big flex column vertical">
         <div id="question"></div>
-        <div><span id="showx" class="none">x = </span><span id="answer"></span></div>
+        <div><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
       </div>
     </section>
 
@@ -154,17 +152,17 @@
         <div id="k7">7</div>
         <div id="k8">8</div>
         <div id="k9">9</div>
+        <div id="kn">-</div>
         <div id="k0">0</div>
-        <div id="kn" class="none">-</div>
-        <div id="kp" class="none">+</div>
+        <div id="kp">+</div>
         <div id="kb">⇐</div>
-        <div id="kc" class="return">↲</div>
+        <div id="kc" class="wide_key">↲</div>
       </div>
 
       <div id="signs_pad" class="flex horizontal vertical row none">
-        <div id="nnn" class="flex horizontal vertical">-</div>
-        <div id="zzz" class="flex horizontal vertical">0</div>
-        <div id="ppp" class="flex horizontal vertical">+</div>
+        <div id="nNn" class="flex horizontal vertical">-</div>
+        <div id="zZz" class="flex horizontal vertical">0</div>
+        <div id="pPp" class="flex horizontal vertical">+</div>
       </div>
     </section>
   </article>

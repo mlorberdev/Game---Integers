@@ -192,6 +192,9 @@ input[type=text] {
   width:calc(2 * var(--key)) !important;
   border-radius:1rem !important;
 }
+#kb {
+  border-radius:1rem !important;
+}
 sup {
   font-size:2rem;
 }
