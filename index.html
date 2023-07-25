@@ -10,11 +10,10 @@
 </head>
 
 <body class="fixed top left flex">
-
-  <!-- <svg id="fullscreen" class="fixed top right" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M0 0h24v24H0z" fill="none" />
-      <path class="fill" d="M20 3h2v6h-2V5h-4V3h4zM4 3h4v2H4v4H2V3h2zm16 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z" />
-    </svg> -->
+  <article id="options" class="fixed full flex top left horizontal vertical column none">
+    <input type="checkbox" id="vibes" /><label for="vibes">vibration / vibración</label><br>
+    <input type="checkbox" id="sound" /><label for="sound">sound / sonido</label><br>
+  </article>
 
   <article id="intro_page" class="fixed full flex top left horizontal vertical column">
     <div class="fixed top left offset flex column">
@@ -22,90 +21,54 @@
       <h2>Practica Matematica</h2>
     </div>
     <img id="icon" src="./favicon.webp" />
-    <button class="fixed bottom button second_button">Sign Up</button>
-    <button id="start" class="fixed bottom button">Login</button>
+    <button class="fixed bottom button second_button">Sign In</button>
+    <button id="start" class="fixed bottom button">Continue without Sign In</button>
   </article>
 
   <article id="skills" class="fixed full flex column top left horizontal vertical scroll none">
-    <img class="icon_opts" src="./favicon.webp" />
     <div class="fixed top left offset flex column">
       <h2>Skills / Habilidades</h2>
       <h4>Choose your skill / Elige tu habilidad</h4>
     </div>
-
-    <fieldset class="flex column padded rolled">
-      <legend>Math Facts / Hechos Matemáticos</legend>
-      <section>
-        <input id="f1" type="radio" name="skill" value="timestable" checked />
-        <label for="f1"> Times table / Tabla de multiplicar</label><br>
-        <input id="f2" type="radio" name="skill" value="maketens" />
-        <label for="f3"> Make tens / Hacer decenas</label><br>
-        <input id="f3" type="radio" name="skill" value="numberfamilies" />
-        <label for="f3"> Number families / Familias de números</label>
-      </section>
-    </fieldset>
-
-    <fieldset class="flex column padded rolled">
-      <legend>Integers / Enteros</legend>
-      <section>
-        <input id="o1" type="radio" name="skill" value="add_int" />
-        <label for="o1"> Add & subtract / Sumar & sustraer</label><br>
-        <input id="o2" type="radio" name="skill" value="mul_int" />
-        <label for="o3"> Multiply & divide / Multiplicar & dividir</label><br>
-      </section>
-    </fieldset>
-
-    <fieldset class="flex column padded rolled">
-      <legend>Algebra / Álgebra</legend>
-      <section>
-        <input id="a1" type="radio" name="skill" value="onestep" checked />
-        <label for="a1"> One step / Un paso</label><br>
-        <input id="a2" type="radio" name="skill" value="twostep" />
-        <label for="a2"> Two step / dos pasos</label>
-      </section>
-    </fieldset>
-
+    
+      <fieldset class="flex column padded rolled">
+        <legend>Math Facts / Hechos Matemáticos</legend>
+        <section>
+          <input id="f1" type="radio" name="skill" value="timestable" checked />
+          <label for="f1"> Times table / Tabla de multiplicar</label><br>
+          <input id="f2" type="radio" name="skill" value="maketens" />
+          <label for="f3"> Make tens / Hacer decenas</label><br>
+          <input id="f3" type="radio" name="skill" value="numberfamilies" />
+          <label for="f3"> Number families / Familias de números</label>
+        </section>
+      </fieldset>
+    
+      <fieldset class="flex column padded rolled">
+        <legend>Integers / Enteros</legend>
+        <section>
+          <input id="o1" type="radio" name="skill" value="add_int" />
+          <label for="o1"> Add & subtract / Sumar & sustraer</label><br>
+          <input id="o2" type="radio" name="skill" value="mul_int" />
+          <label for="o3"> Multiply & divide / Multiplicar & dividir</label><br>
+        </section>
+      </fieldset>
+    
+      <fieldset class="flex column padded rolled">
+        <legend>Algebra / Álgebra</legend>
+        <section>
+          <input id="a1" type="radio" name="skill" value="onestep" checked />
+          <label for="a1"> One step / Un paso</label><br>
+          <input id="a2" type="radio" name="skill" value="twostep" />
+          <label for="a2"> Two step / dos pasos</label>
+        </section>
+      </fieldset>
+    
+      <button id="set_skills" class="fixed bottom button">save / guardar</button>
+  
     <button id="set_skills" class="fixed bottom button">save / guardar</button>
   </article>
 
-  <article id="options" class="fixed full flex column top left horizontal vertical scroll none">
-    <img class="icon_opts" src="./favicon.webp" />
-    <div class="fixed top left offset flex column">
-      <h2>Options / Opciones</h2>
-      <h4>Choose your options / Elige tus opciones</h4>
-    </div>
-    <fieldset class="flex column padded">
-      <legend>How? / ¿Cómo?</legend>
-      <section>
-        <input id="nn" type="radio" name="torn" value="2" checked /><label for="nn"> by count / por conteo</label><br>
-        <input id="tt" type="radio" name="torn" value="1" /><label for="tt"> by time / a tiempo</label>
-      </section>
-    </fieldset>
-    <fieldset class="flex column padded">
-      <legend>How Much? / ¿Cuánto de eso?</legend>
-      <section>
-        <input id="s1" type="radio" name="time" value="1" checked /><label class="qts" for="s1"> 30 q</label><br>
-        <input id="s2" type="radio" name="time" value="2" /><label class="qts" for="s2"> 60 q</label><br>
-        <input id="s3" type="radio" name="time" value="3" /><label class="qts" for="s3"> 90 q</label>
-      </section>
-    </fieldset>
-    <fieldset class="flex column padded">
-      <legend>Feedback / Realimentación</legend>
-      <section>
-        <input type="checkbox" id="sound" checked /><label for="sound"> sound / sonido</label><br>
-        <input type="checkbox" id="vibes" checked /><label for="vibes"> vibration / vibración</label>
-      </section>
-    </fieldset>
-    <button id="goback_toskills" class="fixed bottom button second_button">back / volver</button>
-    <button id="set_options" class="fixed bottom button">save / guardar</button>
-  </article>
-
   <article id="ready_check" class="fixed full flex column top left horizontal vertical none">
-    <img class="icon_opts" src="./favicon.webp" />
-    <svg class="gear" viewBox="0 0 16 16" width="25vw" xmlns="http://www.w3.org/2000/svg">
-      <path id="gear" class="svg fill"
-        d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
-    </svg>
     <div class="fixed top left offset flex column">
       <h2><span id="byTime"></span><span id="units"></span></h2>
       <h4>Good Luck! / ¡Buena suerte!</h4>
@@ -115,32 +78,18 @@
   </article>
 
   <article id="practice" class="fixed full flex column top left horizontal vertical none">
-    <img class="icon_opts" src="./favicon.webp" />
     <section class="width fixed top left flex horizontal">
-      <progress id="progress" max="60" value="0"></progress>
+      <progress id="progress" max="10" value="0"></progress>
     </section>
-  
+
     <section class="fixed top offset flex horizontal width">
       <div class="big flex column vertical">
         <div id="question"></div>
-        <div><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
+        <div id="answer_space" class="flex horizontal vertical"><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
       </div>
     </section>
 
-    <section class="fixed top offset flex horizontal width faded">
-      <svg id="vtt" fill="none" style="display:none" stroke="var(--dark)"
-        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-        <polyline points="22 4 12 14.01 9 11.01" />
-      </svg>
-      <svg id="vff" fill="none" style="display:none" stroke="var(--color1)"
-        stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="15" x2="9" y1="9" y2="15" />
-        <line x1="9" x2="15" y1="9" y2="15" />
-      </svg>
-    </section>
-
+    <!-- KEYBOARDS -->
     <section class="flex horizontal vertical row width">
       <div id="keyboard" class="none">
         <div id="k1">1</div>
@@ -152,21 +101,21 @@
         <div id="k7">7</div>
         <div id="k8">8</div>
         <div id="k9">9</div>
-        <div id="kn">-</div>
         <div id="k0">0</div>
+        <div id="kn">-</div>
         <div id="kp">+</div>
         <div id="kb">⇐</div>
-        <div id="kc" class="wide_key">↲</div>
       </div>
-
       <div id="signs_pad" class="flex horizontal vertical row none">
         <div id="nNn" class="flex horizontal vertical">-</div>
         <div id="zZz" class="flex horizontal vertical">0</div>
         <div id="pPp" class="flex horizontal vertical">+</div>
       </div>
     </section>
+    <button id="kr" class="fixed bottom button">check</button>
   </article>
 
+  <!-- STATISTICS PAGE -->
   <article id="stats" class="fixed full flex column top left horizontal vertical none">
     <section class="fixed top left full flex column width">
       <div class="fixed top left offset flex horizontal column">
@@ -178,6 +127,7 @@
           <span> = </span>
           <span id="percent"></span>
         </h4>
+        <h3>Time: <span id="time"></span></h3>
       </div>
       <div class="flex width horizontal scroll" style="position:fixed;top:30%;max-height:50vh;">
         <ol>
@@ -190,7 +140,7 @@
   </article>
 
   <!-- <script defer src="./script.js"></script> -->
-  <script defer type="module" src="./assets/scripts/index.js"></script>
+  <script defer src="./assets/scripts/index.js"></script>
 </body>
 
 </html>

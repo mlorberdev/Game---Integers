@@ -12,15 +12,14 @@
   --lite: #fff;
   --color1: #941313;
   --color2: #941313bb;
+  --gray: #bbb;
+  --green: #41e732;
+  --red: #8b0f2e;
 }
 
 body,
-input[type=text] {
+input {
   font-family: "Oswald", sans-serif;
-}
-input[type=text] {
-  font-size:1rem;
-  text-align: center;
 }
 
 .absolute {
@@ -98,57 +97,23 @@ input[type=text] {
 
 .button {
   font-family: "Oswald", sans-serif;
-}
-
-.strikethrough {
-  color:#777;
-}
-
-.bottom.button {
-  padding: .5rem 0;
-  margin-bottom: 3rem;
   width: calc(100vw - 4rem);
   border-radius: .75rem;
   border: none;
+  padding: .5rem 0;
+}
+
+.bottom.button {
+  margin-bottom: 3rem;
   background-color: var(--dark);
   color: var(--lite);
 }
 
 .bottom.button.second_button {
-  background-color: var(--lite);
-  border: 1px solid var(--dark);
-  color: var(--dark);
   margin-bottom: 6rem;
-}
-
-.svg.fill {
-  fill: var(--dark);
-}
-
-.gear {
-  animation: turn .6s ease-in;
-}
-
-@keyframes turn {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  5% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(1080deg);
-  }
-}
-
-#lets_go {
-  animation: flip .2s ease-in-out .64s 3;
-}
-@keyframes flip {
-  0%, 100% {filter:invert(0)}
-  50% {filter:invert(.5)}
+  border:3px solid var(--dark);
+  background-color: var(--lite);
+  color:var(--dark);
 }
 
 #go_back {
@@ -165,7 +130,7 @@ input[type=text] {
 #keyboard {
   display: grid;
   grid: auto-flow / var(--key) var(--key) var(--key);
-  grid-gap: .2rem;
+  grid-gap: .1rem;
 }
 
 #keyboard>div {
@@ -176,17 +141,20 @@ input[type=text] {
   width: var(--key);
   height: var(--key);
   border-radius: 50%;
-  border: 3px solid var(--dark);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: border-radius .5s ease-in-out, background-color .3s ease-in-out;
-  background-color: var(--lite);
-  color: var(--dark);
+  background-color: var(--dark);
+  color:var(--lite);
+  border:3px solid var(--lite);
 }
 #keyboard>div:active {
   border-radius:1.2rem;
-  background-color: var(--color2);
+}
+.med_key {
+  width: calc(1.5 * var(--key)) !important;
+  border-radius: 1rem !important;
 }
 .wide_key {
   width:calc(2 * var(--key)) !important;
@@ -235,34 +203,26 @@ progress {
 }
 
 /* --------------------- NEW --------------------- */
-#vtt,
-#vff {
-  position:fixed;
-  top:15vh;
-  width:calc(min(20vw,20vh));
-  height: calc(min(20vw, 20vh));
-}
 .padded {
   padding:1rem;
-}
-fieldset {
-  width:calc(100vw - 3rem);
-}
-legend {
-  font-size: 1.5rem;
 }
 
 #signs_pad {
   font-size:3rem;
   font-weight:bold;
-  border: 3px solid var(--dark);
   border-radius:3px;
 }
 #signs_pad>div {
-  background-color: var(--lite);
-  color: var(--dark);
   width:calc(min(calc(33vw - 1rem), calc(33vh - 1rem)));
 }
 .msg {
   font-size:1.2rem;
+}
+#answer_space {
+  width:7rem;
+  height:7rem;
+  background-color: var(--gray);
+  color:var(--dark);
+  border-radius:50%;
+  overflow: hidden;
 }
