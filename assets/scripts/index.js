@@ -1,8 +1,5 @@
 !(function mathfacts() {
   // VARS
-  const intro = document.getElementById("intro_page");
-  const skills = document.getElementById("skills");
-  const check = document.getElementById("ready_check");
   let isReset = false; // Global for practicing again route
   let op; // Var <op> --> user choice from options: "add" is add/sub, "mult" is mult/div, "any" is any
   const right = new Audio("./assets/sounds/right.mp3");
@@ -10,51 +7,74 @@
   const qqq = document.getElementById("question");
   const aaa = document.getElementById("answer");
   const neg = document.getElementById("neg");
-  const as = document.getElementById("answer_space");
-  const kr = document.getElementById("kr");
+  const kb = document.getElementById("kb");
   let vibes = document.getElementById("vibes").checked;
   let sound = document.getElementById("sound").checked;
   let pr = document.getElementById("progress");
-  let a, b, c, Q, A, arr = [], score = 0, kbd, kk, aa, zz, sm, sym, start_time, end_time;
+  let a, b, c, nn, Q, A, arr = [], tta = [], score = 0, kbd, kbds, ii, aa, zz, sm, sym, start_time, end_time;
   const rn = (z, plus) => { plus ||= 0; return Math.floor(Math.random() * z) + plus; }
   const pn = () => { return Math.random() < .5 ? -1 : 1; }
+  document.querySelectorAll(".key").forEach(key => key.addEventListener("click", evalKey)); // Add listeners to keys
+  for (let i = 0; i <= 12; i++) for (let j = 0; j <= 12; j++) if (j >= i) tta.push([`${i} × ${j}`, i * j]); // Make times table
 
   // FULLSCREEN
   // document.getElementById("fullscreen").addEventListener("click", () => { document.body.requestFullscreen(); });
 
   // EXIT INTRO
   document.getElementById("start").addEventListener("click", function () {
-    intro.classList.add("none"); // Switch to next screen
-    skills.classList.remove("none");
+    document.getElementById("intro_page").classList.add("none"); // Switch to next screen
+    document.getElementById("skills").classList.remove("none");
   });
 
-  // CLOSE SKILLS & OPEN READY CHECK
+  // CLOSE SKILLS & OPEN READY CHECK & SET TIMES TABLE IF NEEDED
   document.getElementById("set_skills").addEventListener("click", function () {
-    skills.classList.add("none");// Switch to next screen
-    check.classList.remove("none");
+    document.querySelectorAll("input[name=skill]").forEach(s => { if (s.checked) op = s.value });
+    // Add instructions to ready check page
+    let ws, ins;
+    switch (op) {
+      case "mul_int": ws = "Multiply Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Multiplication of integers is the same as repetitively adding, which means adding an integer a specific number of times.<br><br>You will be presented an integer multiplication problem, and all you must do is say whether the answer will be positive, zero, or negative! The rule for multiplying or dividing integers is simple: a negative times (or dividing) a negative is positive, and the numbers can be in any order!"; break;
+      case "add_int": ws = "Add Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Adding and subtracting integers are two operations that we perform on integers to increase or decrease their values. The rule to remember is simple: adding a negative decreases a value, whereas subtracting a negative increases a value. You will have to pay close attention to the size of the numbers and the signs of each number!<br><br>Be sure to include the negative sign if your answer is negative!"; break;
+      case "onestep": ws = "One Step Equations"; break;
+      case "twostep": ws = "Two Step Equations"; break;
+      case "timestable": ws = "Times Table"; ins = "Memorising times tables makies it far quicker and easier for you to work out math problems in your head! Moving beyond using your fingers or other tools to work out answers, you'll be able to use this knowledge to quickly solve any multiplication or division question!<br><br>To learn your times tables up to 12s, there are only 91 facts to learn because multiplication works two ways! For example, 1 x 3 is the same as 3 x 1 !!"; break;
+      case "maketens": ws = "Make Tens"; ins = "The make-tem strategy is great for addition! It helps you to understand place value and the relationships between numbers because our number system is based on making groups of ten!<br><br>The question will be one number from 0-10.<br>Your answer should be the number you need to add to make 10!"; break;
+      default: break;
+    }
+    document.getElementById("what_skill").innerHTML = ws; // Set skill name
+    document.getElementById("instructions").innerHTML = ins; // Set instructions
+    document.getElementById("skills").classList.add("none");// Switch to next screen
+    document.getElementById("ready_check").classList.remove("none");
   });
 
   // GO BACK TO SKILLS
   document.getElementById("goback").addEventListener("click", function () {
-    check.classList.add("none"); // Switch to previous screen
-    skills.classList.remove("none");
+    document.getElementById("ready_check").classList.add("none"); // Switch to previous screen
+    document.getElementById("skills").classList.remove("none");
   });
 
-  // CLOSE READY CHECK & OPEN PRACTICE
+  // CLOSE READY CHECK; SET UP & OPEN PRACTICE
   document.getElementById("lets_go").addEventListener("click", function () {
-    document.querySelectorAll("input[name=skill]").forEach(s => { if (s.checked) op = s.value });
-    op === "mul_int" ? (kbd = "signs_pad", kk = "#signs_pad>div") : (kbd = "keyboard", kk = "#keyboard>div");
-    document.getElementById(kbd).classList.remove("none"); // Unhide keyboard
-    document.querySelectorAll(kk).forEach(key => key.addEventListener("click", evalKey));
-    check.classList.add("none");// Switch to next screen
+    kbds = document.querySelectorAll(".kbds"); // All keyboards
+    ii = document.querySelectorAll(".integer"); // -,+ keys
+    if (op === "mul_int") { kbd = "signs_pad" } else { kbd = "keyboard" } // Set required keyboard
+    if (op === "timestable") { nn = 0; tta.sort(() => Math.random() - 0.5);} // Randomly shuffle timestable array and reset counter
+    // Hide -,+ keys when not needed
+    for (let n = 0; n < ii.length; n++) {
+      if (op !== "mul_int" || op !== "add_int") {
+        if (!ii[n].classList.contains("none")) ii[n].classList.add("none");
+      }
+    }
+    if (op === "timestable" || op === "maketens") { if (!kb.classList.contains("wide_key")) kb.classList.add("wide_key"); } // Upsize backspace button
+    for (let i = 0; i < kbds.length; i++) if (!kbds[i].classList.contains("none")) kbds[i].classList.add("none"); // Hide all keyboards
+    document.getElementById(kbd).classList.remove("none"); // Show required keyboard
+    // Switch to next screen
+    document.getElementById("ready_check").classList.add("none");
     practice.classList.remove("none");
-    start_time = new Date(); // start time
+    start_time = new Date(); // Start time
     ask();
   });
 
-  // CHECK ANSWER BUTTON
-  kr.addEventListener("click", ()=> ans("r"));
-
+  // ASK QUESTION
   function ask() {
     pr.value++;
     aaa.innerHTML = "";
@@ -84,16 +104,10 @@
         A = (sym === "/" || sym === "÷") ? a / b : a * b;
         break;
       case "timestable":
-        a = rn(11);
-        b = rn(11);
-        Q = `${a} × ${b}`;
-        A = a * b;
-        break;
-      case "numberfamilies":
-        a = rn(10) + 1;
-        b = rn(10) + 1;
-        Q = `${a} , ${a * b}`;
-        A = b;
+        pr.max = 91;
+        Q = tta[nn][0]; // Question from times table array
+        A = tta[nn][1]; // Answer from times table array
+        nn++; // Next question in array
         break;
       case "maketens":
         a = rn(11);
@@ -126,7 +140,7 @@
       case "n": neg.innerHTML === "-" ? neg.innerHTML = "" : neg.innerHTML = "-"; break;
       case "p": if (neg.innerHTML === "-") neg.innerHTML = ""; break;
       case "b": let ai = aaa.innerHTML.toString(); aaa.innerHTML = ai.slice(0, ai.length - 1); break;
-      case "N": case "Z": case "P": ans(key); break;
+      case "N": case "Z": case "P": case "r": ans(key); break;
       default: aaa.innerHTML += key; break;
     }
   }
@@ -140,25 +154,23 @@
       case (u === "N" && A < 0):
       case (u === "Z" && A === 0):
       case (u === "P" && A > 0):
-        as.style.backgroundColor = "var(--green)";
         sm = "✅";
         score++;
         if (sound) right.play();
         if (vibes) navigator.vibrate(100);
         break;
       default:
-        as.style.backgroundColor = "var(--red)";
         sm = "❌";
         if (sound) wrong.play();
         break;
     }
     arr.push(`${sm} ${zz + aa}, ${Q} = ${A}`); // Push question and answer to arr
-    
     pr.value < pr.max ? ask() : endPractice();
   }
 
   function endPractice() { // End practice session and display stats page
     end_time = new Date();
+    let et = Math.floor((end_time - start_time) / 1000); // Elapsed time in seconds
     const frag = new DocumentFragment(); // Write answers array to DOM
     for (let i = 0; i < arr.length; i++) {
       let ele = document.createElement("li");
@@ -166,20 +178,17 @@
       frag.appendChild(ele);
     }
     document.getElementById("list").appendChild(frag); // Update DOM
-    document.getElementById("correct").innerHTML = score;
-    document.getElementById("total").innerHTML = pr.max;
-    document.getElementById("percent").innerHTML = `${Math.floor(score / pr.max * 100)} %`;
-    document.getElementById("time").innerHTML = `${Math.floor((end_time - start_time) / 1000)}s`;
+    document.getElementById("percent").innerHTML = `${Math.floor(score / pr.max * 100)}%`;
+    document.getElementById("time").innerHTML = `${et / 60 < 1 ? 0 : Math.floor(et / 60) }m ${et % 60}s`;
     document.getElementById("practice").classList.add("none"); // Switch visible pages
     document.getElementById("stats").classList.remove("none");
   } // End of function endPractice
 
   // PRACTICE AGAIN
-  document.getElementById("go_again").addEventListener("click", function () {
-    if (isReset === false) { document.getElementById("lets_go").addEventListener("click", letsGo); }
-    // list.innerHTML += "<hr class='width'>"; // Visually separate new list
+  document.getElementById("go_home").addEventListener("click", function () {
+    document.getElementById("start").click;
     pr.value = 0;
-    list.innerHTML = "";
+    list.innerHTML += "<hr class='width'>";
     score = 0;
     stats.classList.add("none"); // Switch to options screen
     skills.classList.remove("none");

@@ -44,7 +44,7 @@ input {
 }
 
 .top.offset {
-  top: 3rem;
+  top: 1.3rem;
 }
 
 .faded {
@@ -163,12 +163,15 @@ input {
 #kb {
   border-radius:1rem !important;
 }
+#instructions {
+  padding:1.3rem !important;
+}
 sup {
   font-size:2rem;
 }
 progress {
-  width: calc(min(80vw, 80vh));
-  margin-top: 1rem;
+  width: calc(min(90vw, 90vh));
+  margin-top: .5rem;
 }
 
 #nn,
@@ -210,19 +213,12 @@ progress {
 #signs_pad {
   font-size:3rem;
   font-weight:bold;
-  border-radius:3px;
+  border-radius:5px;
+  border:3px solid var(--dark);
 }
 #signs_pad>div {
   width:calc(min(calc(33vw - 1rem), calc(33vh - 1rem)));
 }
 .msg {
   font-size:1.2rem;
-}
-#answer_space {
-  width:7rem;
-  height:7rem;
-  background-color: var(--gray);
-  color:var(--dark);
-  border-radius:50%;
-  overflow: hidden;
 }

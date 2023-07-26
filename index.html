@@ -34,12 +34,10 @@
       <fieldset class="flex column padded rolled">
         <legend>Math Facts / Hechos Matemáticos</legend>
         <section>
-          <input id="f1" type="radio" name="skill" value="timestable" checked />
-          <label for="f1"> Times table / Tabla de multiplicar</label><br>
           <input id="f2" type="radio" name="skill" value="maketens" />
           <label for="f3"> Make tens / Hacer decenas</label><br>
-          <input id="f3" type="radio" name="skill" value="numberfamilies" />
-          <label for="f3"> Number families / Familias de números</label>
+          <input id="f1" type="radio" name="skill" value="timestable" checked />
+          <label for="f1"> Times table / Tabla de multiplicar</label><br>
         </section>
       </fieldset>
     
@@ -53,30 +51,34 @@
         </section>
       </fieldset>
     
-      <fieldset class="flex column padded rolled">
+      <!-- <fieldset class="flex column padded rolled">
         <legend>Algebra / Álgebra</legend>
         <section>
-          <input id="a1" type="radio" name="skill" value="onestep" checked />
+          <input id="a1" type="radio" name="skill" value="onestep" />
           <label for="a1"> One step / Un paso</label><br>
           <input id="a2" type="radio" name="skill" value="twostep" />
           <label for="a2"> Two step / dos pasos</label>
         </section>
-      </fieldset>
-    
-      <button id="set_skills" class="fixed bottom button">save / guardar</button>
-  
+      </fieldset> -->
     <button id="set_skills" class="fixed bottom button">save / guardar</button>
   </article>
 
+  <!-- READY CHECK -->
   <article id="ready_check" class="fixed full flex column top left horizontal vertical none">
-    <div class="fixed top left offset flex column">
-      <h2><span id="byTime"></span><span id="units"></span></h2>
-      <h4>Good Luck! / ¡Buena suerte!</h4>
+    <div class="fixed full flex column top left offset">
+      <h2>
+        <div id="what_skill"></div>
+        <span id="byTime"></span>
+        <span id="units"></span>
+      </h2>
+      <h3>Good Luck! / ¡Buena suerte!</h3>
     </div>
+    <div id="instructions" class="flex width horizontal scroll" style="position:fixed;top:20%;max-height:50vh;"></div>
     <button id="goback" class="fixed bottom button second_button">back / volver</button>
     <button id="lets_go" class="fixed bottom button">go / ir</button>
   </article>
 
+  <!-- PRACTICE PAGE -->
   <article id="practice" class="fixed full flex column top left horizontal vertical none">
     <section class="width fixed top left flex horizontal">
       <progress id="progress" max="10" value="0"></progress>
@@ -85,34 +87,34 @@
     <section class="fixed top offset flex horizontal width">
       <div class="big flex column vertical">
         <div id="question"></div>
-        <div id="answer_space" class="flex horizontal vertical"><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
+        <div id="answer_space"><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
       </div>
     </section>
 
     <!-- KEYBOARDS -->
     <section class="flex horizontal vertical row width">
-      <div id="keyboard" class="none">
-        <div id="k1">1</div>
-        <div id="k2">2</div>
-        <div id="k3">3</div>
-        <div id="k4">4</div>
-        <div id="k5">5</div>
-        <div id="k6">6</div>
-        <div id="k7">7</div>
-        <div id="k8">8</div>
-        <div id="k9">9</div>
-        <div id="k0">0</div>
-        <div id="kn">-</div>
-        <div id="kp">+</div>
-        <div id="kb">⇐</div>
+      <div id="keyboard" class="kbds">
+        <div id="k1" class="key">1</div>
+        <div id="k2" class="key">2</div>
+        <div id="k3" class="key">3</div>
+        <div id="k4" class="key">4</div>
+        <div id="k5" class="key">5</div>
+        <div id="k6" class="key">6</div>
+        <div id="k7" class="key">7</div>
+        <div id="k8" class="key">8</div>
+        <div id="k9" class="key">9</div>
+        <div id="k0" class="key">0</div>
+        <div id="kn" class="integer key">-</div>
+        <div id="kp" class="integer key">+</div>
+        <div id="kb" class="key">⇐</div>
       </div>
-      <div id="signs_pad" class="flex horizontal vertical row none">
-        <div id="nNn" class="flex horizontal vertical">-</div>
-        <div id="zZz" class="flex horizontal vertical">0</div>
-        <div id="pPp" class="flex horizontal vertical">+</div>
+      <div id="signs_pad" class="kbds flex horizontal vertical row none">
+        <div id="nNn" class="flex horizontal vertical key">-</div>
+        <div id="zZz" class="flex horizontal vertical key">0</div>
+        <div id="pPp" class="flex horizontal vertical key">+</div>
       </div>
     </section>
-    <button id="kr" class="fixed bottom button">check</button>
+    <button id="kr" class="fixed bottom button key">check</button>
   </article>
 
   <!-- STATISTICS PAGE -->
@@ -120,23 +122,19 @@
     <section class="fixed top left full flex column width">
       <div class="fixed top left offset flex horizontal column">
         <h2>Congrats! / ¡Felicidads!</h2>
-        <h4>
-          <span id="correct"></span>
-          <span> / </span>
-          <span id="total"></span>
-          <span> = </span>
+        <h3>
+          <span>Score / Puntaje: </span>
           <span id="percent"></span>
-        </h4>
-        <h3>Time: <span id="time"></span></h3>
+        </h3>
+        <h3>Time / Tiempo: <span id="time"></span></h3>
       </div>
-      <div class="flex width horizontal scroll" style="position:fixed;top:30%;max-height:50vh;">
+      <div class="flex width horizontal scroll" style="position:fixed;top:30%;max-height:45vh;">
         <ol>
           <div id="list"></div>
         </ol>
       </div>
     </section>
-    <button id="go_home" class="fixed bottom button second_button">homepage / página inicial</button>
-    <button id="go_again" class="fixed bottom button">practice again / practicar de nuevo</button>
+    <button id="go_home" class="fixed bottom button">homepage / página inicial</button>
   </article>
 
   <!-- <script defer src="./script.js"></script> -->
