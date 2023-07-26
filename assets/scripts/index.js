@@ -11,7 +11,7 @@
   let vibes = document.getElementById("vibes").checked;
   let sound = document.getElementById("sound").checked;
   let pr = document.getElementById("progress");
-  let a, b, c, nn, Q, A, arr = [], tta = [], score = 0, kbd, kbds, ii, aa, zz, sm, sym, start_time, end_time;
+  let a, b, c, nn, Q, A, arr = [], tta = [], score = 0, kbd, kbds, aa, zz, sm, sym, start_time, end_time;
   const rn = (z, plus) => { plus ||= 0; return Math.floor(Math.random() * z) + plus; }
   const pn = () => { return Math.random() < .5 ? -1 : 1; }
   document.querySelectorAll(".key").forEach(key => key.addEventListener("click", evalKey)); // Add listeners to keys
@@ -55,23 +55,25 @@
   // CLOSE READY CHECK; SET UP & OPEN PRACTICE
   document.getElementById("lets_go").addEventListener("click", function () {
     kbds = document.querySelectorAll(".kbds"); // All keyboards
-    ii = document.querySelectorAll(".integer"); // -,+ keys
     if (op === "mul_int") { kbd = "signs_pad" } else { kbd = "keyboard" } // Set required keyboard
-    if (op === "timestable") { nn = 0; tta.sort(() => Math.random() - 0.5);} // Randomly shuffle timestable array and reset counter
+    if (op === "timestable") { nn = 0; tta.sort(() => Math.random() - 0.5); } // Randomly shuffle timestable array and reset counter
     // Hide -,+ keys when not needed
-    for (let n = 0; n < ii.length; n++) {
-      if (op !== "mul_int" || op !== "add_int") {
-        if (!ii[n].classList.contains("none")) ii[n].classList.add("none");
-      }
+    if (op === "add_int") {
+      if (!kb.classList.contains("very_wide_key")) kb.classList.add("very_wide_key"); // Upsize backspace a lot
+      if (document.getElementById("kn").classList.contains("none")) document.getElementById("kn").classList.remove("none");
+      if (document.getElementById("kp").classList.contains("none")) document.getElementById("kp").classList.remove("none");
+    } else {
+      if (kb.classList.contains("very_wide_key")) kb.classList.remove("very_wide_key"); // Downsize backspace if needed
+      if (!document.getElementById("kn").classList.contains("none")) document.getElementById("kn").classList.add("none");
+      if (!document.getElementById("kp").classList.contains("none")) document.getElementById("kp").classList.add("none");
     }
-    if (op === "timestable" || op === "maketens") { if (!kb.classList.contains("wide_key")) kb.classList.add("wide_key"); } // Upsize backspace button
     for (let i = 0; i < kbds.length; i++) if (!kbds[i].classList.contains("none")) kbds[i].classList.add("none"); // Hide all keyboards
     document.getElementById(kbd).classList.remove("none"); // Show required keyboard
     // Switch to next screen
     document.getElementById("ready_check").classList.add("none");
     practice.classList.remove("none");
     start_time = new Date(); // Start time
-    ask();
+    ask(); // Ask first question
   });
 
   // ASK QUESTION
@@ -179,7 +181,7 @@
     }
     document.getElementById("list").appendChild(frag); // Update DOM
     document.getElementById("percent").innerHTML = `${Math.floor(score / pr.max * 100)}%`;
-    document.getElementById("time").innerHTML = `${et / 60 < 1 ? 0 : Math.floor(et / 60) }m ${et % 60}s`;
+    document.getElementById("time").innerHTML = `${et / 60 < 1 ? 0 : Math.floor(et / 60)}m ${et % 60}s`;
     document.getElementById("practice").classList.add("none"); // Switch visible pages
     document.getElementById("stats").classList.remove("none");
   } // End of function endPractice
