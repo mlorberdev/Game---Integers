@@ -226,3 +226,10 @@ progress {
 .msg {
   font-size:1.2rem;
 }
+
+fieldset {
+  width:85%;
+}
+legend {
+  font-weight: bold;
+}

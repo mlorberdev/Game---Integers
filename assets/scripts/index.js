@@ -31,11 +31,15 @@
     document.querySelectorAll("input[name=skill]").forEach(s => { if (s.checked) op = s.value });
     // Add instructions to ready check page
     let ws, ins;
+    let add_def = "Addition and subtraction are useful for many activities of everyday life, and prepares you for learning about other math topics in school, including multiplication and division.<br><br>Practice addition and subtraction in your head to make math much easier! Did you know mental math actually keeps our brains quick and sharp? The brain, like the muscles, gets stronger and more efficient with use. Mental math also greatly improves a person ability to understand the relationships between quantities. There are many great strategies for mental math; ask your teacher!";
     switch (op) {
       case "mul_int": ws = "Multiply Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Multiplication of integers is the same as repetitively adding, which means adding an integer a specific number of times.<br><br>You will be presented an integer multiplication problem, and all you must do is say whether the answer will be positive, zero, or negative! The rule for multiplying or dividing integers is simple: a negative times (or dividing) a negative is positive, and the numbers can be in any order!"; break;
       case "add_int": ws = "Add Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Adding and subtracting integers are two operations that we perform on integers to increase or decrease their values. The rule to remember is simple: adding a negative decreases a value, whereas subtracting a negative increases a value. You will have to pay close attention to the size of the numbers and the signs of each number!<br><br>Be sure to include the negative sign if your answer is negative!"; break;
       case "onestep": ws = "One Step Equations"; break;
       case "twostep": ws = "Two Step Equations"; break;
+      case "addition32": ws = "Addition 3"; ins = add_def; break;
+      case "addition21": ws = "Addition 2"; ins = add_def; break;
+      case "addition11": ws = "Addition 1"; ins = add_def; break;
       case "timestable": ws = "Times Table"; ins = "Memorising times tables makies it far quicker and easier for you to work out math problems in your head! Moving beyond using your fingers or other tools to work out answers, you'll be able to use this knowledge to quickly solve any multiplication or division question!<br><br>To learn your times tables up to 12s, there are only 91 facts to learn because multiplication works two ways! For example, 1 x 3 is the same as 3 x 1 !!"; break;
       case "maketens": ws = "Make Tens"; ins = "The make-tem strategy is great for addition! It helps you to understand place value and the relationships between numbers because our number system is based on making groups of ten!<br><br>The question will be one number from 0-10.<br>Your answer should be the number you need to add to make 10!"; break;
       default: break;
@@ -82,13 +86,37 @@
     aaa.innerHTML = "";
     neg.innerHTML = "";
     switch (op) {
+      case "addition11":
+        a = rn(10);
+        b = rn(10);
+        if (pn() === 1) { Q = `${a} + ${b}`; A = a + b; }
+        else {
+          if (b <= a) {
+            Q = `${a} - ${b}`; A = a - b;
+          } else {
+            Q = `${b} - ${a}`; A = b - a;
+          }
+        }
+        break;
+      case "addition21":
+        a = rn(80, 10);
+        b = rn(9, 1);
+        if (pn() === 1) { Q = `${a} + ${b}`; A = a + b; }
+        else { Q = `${a} - ${b}`; A = a - b; }
+        break;
+      case "addition32":
+        a = rn(800, 100);
+        b = rn(90, 10);
+        if (pn() === 1) { Q = `${a} + ${b}`; A = a + b; }
+        else { Q = `${a} - ${b}`; A = a - b; }
+        break;
       case "add_int":
         showNeg();
         a = rn(10) * pn();
         b = rn(10) * pn();
         c = pn() === 1 ? b : `(${b})`;
         if (pn() === 1) { Q = `${a} + ${c}`; A = a + b; }
-        else { Q = `${a} - ${c}`, A = a - b; }
+        else { Q = `${a} - ${c}`; A = a - b; }
         break;
       case "mul_int":
         a = rn(10) * pn();
@@ -134,7 +162,6 @@
   }
 
   function showX() { document.getElementById("showx").classList.remove("none"); }
-  function showNeg() { document.querySelectorAll(".int_key").forEach(e => e.classList.remove("none")); }
 
   function evalKey() {
     let key = this.id.toString().charAt(1);
