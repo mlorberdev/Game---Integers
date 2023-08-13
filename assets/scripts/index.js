@@ -111,7 +111,7 @@
         else { Q = `${a} - ${b}`; A = a - b; }
         break;
       case "add_int":
-        showNeg();
+        // showNeg();
         a = rn(10) * pn();
         b = rn(10) * pn();
         c = pn() === 1 ? b : `(${b})`;
@@ -186,7 +186,9 @@
         sm = "✅";
         score++;
         if (sound) right.play();
-        if (vibes) navigator.vibrate(100);
+        if (vibes) navigator.vibrate(300);
+        document.querySelector(":root").style.setProperty('--trns', '#41e732');
+        setTimeout(() => document.querySelector(":root").style.setProperty('--trns', 'transparent'), 100);
         break;
       default:
         sm = "❌";
@@ -215,9 +217,9 @@
 
   // PRACTICE AGAIN
   document.getElementById("go_home").addEventListener("click", function () {
+    document.getElementById("list").innerHTML = "";
     document.getElementById("start").click;
     pr.value = 0;
-    list.innerHTML += "<hr class='width'>";
     score = 0;
     stats.classList.add("none"); // Switch to options screen
     skills.classList.remove("none");

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400&display=swap');
 
 * {
   box-sizing: border-box;
@@ -15,11 +15,14 @@
   --gray: #bbb;
   --green: #41e732;
   --red: #8b0f2e;
+  --trns: transparent;
 }
 
 body,
 input {
-  font-family: "Oswald", sans-serif;
+  font-family:'Raleway', sans-serif;
+  background-color: #aa2222;
+  color:#000;
 }
 
 .absolute {
@@ -98,15 +101,17 @@ input {
 .button {
   font-family: "Oswald", sans-serif;
   width: calc(100vw - 4rem);
-  border-radius: .75rem;
+  border-radius: 2rem;
   border: none;
-  padding: .5rem 0;
+  padding: 1rem 0;
 }
 
 .bottom.button {
   margin-bottom: 3rem;
-  background-color: var(--dark);
-  color: var(--lite);
+  font-weight:bold;
+  background-color: #e2cb38;
+  border:2px solid black;
+  color: #000;
 }
 
 .bottom.button.second_button {
@@ -127,16 +132,25 @@ input {
   z-index:300;
 }
 
+#question,
+#answer_space {
+  font-family:monospace;
+  color:#000;
+}
+
 #keyboard {
   display: grid;
   grid: auto-flow / var(--key) var(--key) var(--key);
-  grid-gap: .1rem;
+  grid-gap: .3rem;
 }
-
+fieldset>section {
+  font-weight:bold;
+}
 #keyboard>div {
   user-select: none;
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-family: monospace;
+  font-weight: bolder;
+  font-size: 1.8rem;
   padding: 1.5rem;
   width: var(--key);
   height: var(--key);
@@ -144,29 +158,29 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: border-radius .5s ease-in-out, background-color .3s ease-in-out;
-  background-color: var(--dark);
-  color:var(--lite);
-  border:3px solid var(--lite);
+  transition: border-radius .2s ease-out, background-color .2s linear;
+  background-color: var(--trns);
+  color:#000;
+  border:2px solid black;
 }
 #keyboard>div:active {
-  border-radius:1.2rem;
+  border-radius:.5rem;
 }
 .med_key {
   width: calc(1.5 * var(--key)) !important;
-  border-radius: 1rem !important;
+  border-radius: 2rem !important;
 }
 .wide_key {
   width:calc(2 * var(--key)) !important;
-  border-radius:1rem !important;
+  border-radius:2rem !important;
 }
 .very_wide_key {
   width: calc(3 * var(--key)) !important;
-  border-radius: 1rem !important;
+  border-radius: 2rem !important;
 }
-#kb {
+/* #kb {
   border-radius:1rem !important;
-}
+} */
 #instructions {
   padding:1.3rem !important;
 }
@@ -213,7 +227,6 @@ progress {
 .padded {
   padding:1rem;
 }
-
 #signs_pad {
   font-size:3rem;
   font-weight:bold;
@@ -229,7 +242,9 @@ progress {
 
 fieldset {
   width:85%;
+  border:none;
 }
 legend {
   font-weight: bold;
+  text-align: center;
 }
