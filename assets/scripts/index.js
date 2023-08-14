@@ -40,7 +40,7 @@
       case "addition32": ws = "Addition 3"; ins = add_def; break;
       case "addition21": ws = "Addition 2"; ins = add_def; break;
       case "addition11": ws = "Addition 1"; ins = add_def; break;
-      case "timestable": ws = "Times Table"; ins = "Memorising times tables makies it far quicker and easier for you to work out math problems in your head! Moving beyond using your fingers or other tools to work out answers, you'll be able to use this knowledge to quickly solve any multiplication or division question!<br><br>To learn your times tables up to 12s, there are only 91 facts to learn because multiplication works two ways! For example, 1 x 3 is the same as 3 x 1 !!"; break;
+      case "timestable": ws = "Times Table"; ins = "Memorising times tables makies it far quicker and easier for you to work out math problems in your head! Moving beyond using your fingers or other tools to work out answers, you'll be able to use this knowledge to quickly solve any multiplication or division question!<br><br>To learn your times tables up to 12s, there are only 91 facts to learn because multiplication works two ways! For example, 1 x 3 is the same as 3 x 1!!"; break;
       case "maketens": ws = "Make Tens"; ins = "The make-tem strategy is great for addition! It helps you to understand place value and the relationships between numbers because our number system is based on making groups of ten!<br><br>The question will be one number from 0-10.<br>Your answer should be the number you need to add to make 10!"; break;
       default: break;
     }
