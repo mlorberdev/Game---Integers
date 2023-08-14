@@ -10,6 +10,7 @@
   --key: calc(min(17vw, 17vh));
   --dark: #111;
   --lite: #fff;
+  --yel:#e2cb38;
   --color1: #941313;
   --color2: #941313bb;
   --gray: #bbb;
@@ -85,7 +86,12 @@ input {
 .width {
   width: 100vw;
 }
-
+#stats {
+  font-weight: bold;
+}
+#list {
+  font-size:1.3rem;
+}
 .column {
   flex-direction: column;
 }
@@ -109,7 +115,7 @@ input {
 .bottom.button {
   margin-bottom: 3rem;
   font-weight:bold;
-  background-color: #e2cb38;
+  background-color: var(--yel);
   border:2px solid black;
   color: #000;
 }
@@ -162,6 +168,9 @@ fieldset>section {
   background-color: var(--trns);
   color:#000;
   border:2px solid black;
+}
+#signs_pad>div {
+  transition: background-color .2s linear;
 }
 #keyboard>div:active {
   border-radius:.5rem;
@@ -235,6 +244,7 @@ progress {
 }
 #signs_pad>div {
   width:calc(min(calc(33vw - 1rem), calc(33vh - 1rem)));
+  background-color: var(--trns);
 }
 .msg {
   font-size:1.2rem;
@@ -242,7 +252,8 @@ progress {
 
 fieldset {
   width:85%;
-  border:none;
+  border:2px solid var(--dark);
+  margin-bottom: 1rem;
 }
 legend {
   font-weight: bold;

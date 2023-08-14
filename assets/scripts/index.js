@@ -33,8 +33,8 @@
     let ws, ins;
     let add_def = "Addition and subtraction are useful for many activities of everyday life, and prepares you for learning about other math topics in school, including multiplication and division.<br><br>Practice addition and subtraction in your head to make math much easier! Did you know mental math actually keeps our brains quick and sharp? The brain, like the muscles, gets stronger and more efficient with use. Mental math also greatly improves a person ability to understand the relationships between quantities. There are many great strategies for mental math; ask your teacher!";
     switch (op) {
-      case "mul_int": ws = "Multiply Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Multiplication of integers is the same as repetitively adding, which means adding an integer a specific number of times.<br><br>You will be presented an integer multiplication problem, and all you must do is say whether the answer will be positive, zero, or negative! The rule for multiplying or dividing integers is simple: a negative times (or dividing) a negative is positive, and the numbers can be in any order!"; break;
-      case "add_int": ws = "Add Integers"; ins = "Integers are used in real life in many situations! In banks, credits and debits are represented as positive and negative numbers. Integers are a commonly used data type in computer programming as well. Adding and subtracting integers are two operations that we perform on integers to increase or decrease their values. The rule to remember is simple: adding a negative decreases a value, whereas subtracting a negative increases a value. You will have to pay close attention to the size of the numbers and the signs of each number!<br><br>Be sure to include the negative sign if your answer is negative!"; break;
+      case "mul_int": ws = "Multiply Integers"; ins = "The rules for multiplying integers are simple:<br><br>If the signs are the same, the answer is positive.<br>If they are different, the answer is negative.<br>If one number is zero, the answer is zero.<br><br>You won't have to do the multiplying or dividing in this exercise. Just give the correct sign."; break;
+      case "add_int": ws = "Add Integers"; ins = "The rules for adding integers are simple:<br><br>Adding two positive integers results in a positive integer.<br>Adding two negative integers results in a negative integer.<br>Adding different signed integers is always subtraction; give the answer the sign of the bigger integer.<br><br>When subtracting integers, change the question to addition and change the sign on the second number to its opposite. Then follow the rules for addition.<br><br>Be sure to include the negative sign if your answer is negative."; break;
       case "onestep": ws = "One Step Equations"; break;
       case "twostep": ws = "Two Step Equations"; break;
       case "addition32": ws = "Addition 3"; ins = add_def; break;
@@ -195,7 +195,23 @@
         if (sound) wrong.play();
         break;
     }
-    arr.push(`${sm} ${zz + aa}, ${Q} = ${A}`); // Push question and answer to arr
+    // Push question and answer to arr
+    if (u === "N" || u === "Z" || u === "P") {
+      let tmp, eqls = "=";
+      switch (u) {
+        case "N": tmp = "-"; break;
+        case "Z": tmp = "0"; break;
+        case "P": tmp = "+"; break;
+        default: break;
+      }
+      if (A.toString().length > 3) {
+        A = A.toFixed(3);
+        eqls = "≈";
+      }
+      arr.push(`${sm} ${tmp}, ${Q} ${eqls} ${A}`);
+    } else {
+      arr.push(`${sm} ${zz + aa}, ${Q} = ${A}`);
+    }
     pr.value < pr.max ? ask() : endPractice();
   }
 

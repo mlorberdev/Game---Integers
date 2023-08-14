@@ -22,7 +22,7 @@
       <h2>Practica Matematica</h2>
     </div>
     <!-- <img id="icon" src="./favicon.webp" /> -->
-    <img id="icon" src="./favicon.png"/>
+    <img id="icon" src="./favicon.png" />
     <button id="start" class="fixed bottom button">Continue / Continuar</button>
   </article>
 
@@ -32,34 +32,42 @@
       <h2>Skills / Habilidades</h2>
       <h4>Choose your skill / Elige tu habilidad</h4>
     </div>
-    
-      <fieldset class="flex column padded rolled">
-        <legend>Math Facts / Hechos Matemáticos</legend>
-        <section>
-          <input id="f0" type="radio" name="skill" value="maketens" />
-          <label for="f0"> Make tens / Hacer decenas</label><br>
-          <input id="f1" type="radio" name="skill" value="addition11" />
-          <label for="f1"> Addition 11 / Adición 11</label><br>
-          <input id="f2" type="radio" name="skill" value="addition21" />
-          <label for="f2"> Addition 21 / Adición 21</label><br>
-          <input id="f3" type="radio" name="skill" value="addition32" />
-          <label for="f3"> Addition 32 / Adición 32</label><br>
-          <input id="f4" type="radio" name="skill" value="timestable" checked />
-          <label for="f4"> Times table / Tabla de multiplicar</label><br>
-        </section>
-      </fieldset>
-    
-      <fieldset class="flex column padded rolled">
-        <legend>Integers / Enteros</legend>
-        <section>
-          <input id="o1" type="radio" name="skill" value="add_int" />
-          <label for="o1"> Add & subtract / Sumar & sustraer</label><br>
-          <input id="o2" type="radio" name="skill" value="mul_int" />
-          <label for="o3"> Multiply & divide / Multiplicar & dividir</label><br>
-        </section>
-      </fieldset>
-    
-      <!-- <fieldset class="flex column padded rolled">
+
+    <fieldset class="flex column padded rolled">
+      <legend>Geometry / Geometría</legend>
+    </fieldset>
+
+    <fieldset class="flex column padded rolled">
+      <legend>Algebra / Álgebra</legend>
+    </fieldset>
+
+    <fieldset class="flex column padded rolled">
+      <legend>Integers / Enteros</legend>
+      <section>
+        <input id="o1" type="radio" name="skill" value="add_int" checked />
+        <label for="o1"> Add & subtract / Sumar & sustraer</label><br>
+        <input id="o2" type="radio" name="skill" value="mul_int" />
+        <label for="o3"> Multiply & divide / Multiplicar & dividir</label><br>
+      </section>
+    </fieldset>
+
+    <fieldset class="flex column padded rolled">
+      <legend>Math Facts / Hechos Matemáticos</legend>
+      <section>
+        <input id="f0" type="radio" name="skill" value="maketens" />
+        <label for="f0"> Make tens / Hacer decenas</label><br>
+        <input id="f1" type="radio" name="skill" value="addition11" />
+        <label for="f1"> Addition 11 / Adición 11</label><br>
+        <input id="f2" type="radio" name="skill" value="addition21" />
+        <label for="f2"> Addition 21 / Adición 21</label><br>
+        <input id="f3" type="radio" name="skill" value="addition32" />
+        <label for="f3"> Addition 32 / Adición 32</label><br>
+        <input id="f4" type="radio" name="skill" value="timestable" />
+        <label for="f4"> Times table / Tabla de multiplicar</label><br>
+      </section>
+    </fieldset>
+
+    <!-- <fieldset class="flex column padded rolled">
         <legend>Algebra / Álgebra</legend>
         <section>
           <input id="a1" type="radio" name="skill" value="onestep" />
@@ -95,7 +103,8 @@
     <section class="fixed top offset flex horizontal width">
       <div class="big flex column vertical">
         <div id="question"></div>
-        <div id="answer_space"><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span></div>
+        <div id="answer_space"><span id="showx" class="none">x = </span><span id="neg"></span><span id="answer"></span>
+        </div>
       </div>
     </section>
 
