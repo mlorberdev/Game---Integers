@@ -7,7 +7,7 @@
 }
 
 :root {
-  --key: calc(min(17vw, 17vh));
+  --key: 3.5rem;
   --dark: #111;
   --lite: #fff;
   --yel:#e2cb38;
